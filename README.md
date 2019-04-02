@@ -4,7 +4,7 @@ We propose a unified framework to aid users in quickly discerning salient connec
 
 You can use the [editor on GitHub](https://github.com/shengyp/Multi-doc-rel-min/edit/master/index.md) to maintain and preview the
 
-### The Framework of Our Approach
+### The Framework of Our Approach
 
 ![](figs/model.png)![](file://C:\Users\dell\Desktop\EventStoryLine\figs\model.png)
 
@@ -51,10 +51,6 @@ The code used in this paper will be updated after the work be accepted.
 
 ```markdown
 Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
 
 - Bulleted
 - List
