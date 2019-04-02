@@ -49,7 +49,7 @@
                     </li>
                     <li class="page-scroll"><a href="#abstract">Abstract</a>
                     </li>
-                    <li class="page-scroll"><a href="#solutions">About System</a>
+                    <li class="page-scroll"><a href="#solutions">The framework of Our Approach</a>
                     </li>
 
                     <li class="page-scroll">
@@ -58,6 +58,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#case">Algebra</a></li>
+                            <li><a href="#geometry">Geometry</a></li>
                             <li><a href="#geometry">Geometry</a></li>
                         </ul>
                     </li>
@@ -88,13 +89,11 @@
                     <!--                     <p class="orgnization">University of Electronic Science and Technology of China</p>
                                         <p class="orgnization">Department of Computer Science, Technische Universit¨ at Darmstadt</p> -->
                     <span><a href="http://smilelab.uestc.edu.cn/members/shengyongpan/"
-                             class="author">Xiuqin Zhong</a><sup class="auther-order">1</sup></span>
-                    <span><a href="http://smilelab.uestc.edu.cn/members/xuzenglin/" class="author">Yongpan Sheng</a><sup
-                            class="auther-order">1,2</sup></span>
-                    <span><a href="" class="author">Hongguang Fu</a><sup class="auther-order">1</sup></span>
-                    <span><a href="" class="author">Liang Xu</a><sup class="auther-order">1</sup></span>
-                    <span><a href="http://gerard.demelo.org/" class="author">Guo</a><sup
+                             class="author">Yongpan Sheng</a><sup class="auther-order">1</sup></span>
+                    <span><a href="http://smilelab.uestc.edu.cn/members/xuzenglin/" class="author">Zenglin Xu</a><sup
                             class="auther-order">1</sup></span>
+                    <span><a href="" class="author">Chaoran Huang</a><sup class="auther-order">2</sup></span>
+                    <span><a href="" class="author">Gerard de Melo</a><sup class="auther-order">3</sup></span>
                 </div>
                 <p></p>
                 <div class="auther-apart">
@@ -120,6 +119,7 @@
             </div>
         </div>
 </section>
+
 <section id="solutions">
     <div class="container">
         <div class="g-pt-70 g-pb-30">
@@ -140,29 +140,37 @@
                                 <img src="css/system.jpg" align="center" width="90%">
                             </div>
                             <div style="padding-top: 15px;text-align: left;text-indent: 0em;margin-left: 30px;">
-                                <ol>
+                              <!--   <ol>
                                     <li class="imagelist">User interface: After entering a search term (1), the system
                                         displays retrieved documents
                                         (right) and a graph built from them (left).
                                     </li>
-                                    <li class="imagelist">User interface: After entering a search term (1), the system
-                                        displays retrieved documents
-                                        (right) and a graph built from them (left).
-                                    </li>
-                                    <li class="imagelist">User interface: After entering a search term (1), the system
-                                        displays retrieved documents
-                                        (right) and a graph built from them (left).
-                                    </li>
-                                    <li class="imagelist">User interface: After entering a search term (1), the system
-                                        displays retrieved documents
-                                        (right) and a graph built from them (left).
-                                    </li>
-                                    <li class="imagelist">User interface: After entering a search term (1), the system
-                                        displays retrieved documents
-                                        (right) and a graph built from them (left).
-                                    </li>
-
-                                </ol>
+                                </ol> -->
+                                <p>Our task is aimed to assist users in quickly finding salient connections and facts from a collection of relevant articles, and in summary, it can be best described as a combination of three major subtasks:</p>
+                                <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black"><strong>Subtask 1: Candidate Facts Extraction:</strong>
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    data-target="#table2">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                            </button>
+                                        </p>
+                                </div>
+                                <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black"><strong>Subtask 2: Topic Coherence Estimation of Candidate Facts:</strong>
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    data-target="#table2">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                            </button>
+                                        </p>
+                                </div>
+                                <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black"><strong>Subtask 3: Conceptual Graph Construction:</strong>
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    data-target="#table2">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                            </button>
+                                        </p>
+                                </div>            
                             </div>
 
                         </div>
@@ -173,7 +181,7 @@
         </div>
 </section>
 
-<section id="case">
+<section id="case1">
     <div class="container">
         <div class="g-pt-70">
             <div class="g-heading-v10 g-mb-30">
@@ -183,7 +191,7 @@
                 <div class="content">
                     <div class="benefit">
                         <div>
-                            <h3 class="text-left " style="font-size: larger">3.1 Algebra Example</h3>
+                            <h3 class="text-left" style="font-size: larger">3.1 Candidate Facts Extraction</h3>
                             <div style="color: black !important;text-align: left !important;
                             display: inline-block !important; text-indent: 0px">
                                 <div class="row">
@@ -267,24 +275,6 @@
                                                 <td>6</td>
                                                 <td>SubConclusionRelation：</td>
                                             </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>(1)
-                                                    [SolutionConclusionRelation{relation:getMinClycle，CommonFunctionRelation{function:
-                                                    <br>$ f(x)=sin(x)-2\sqrt{3}*sin(\frac{x}{2})^{2}
-                                                    $,definitionDomain:R}}]
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>8</td>
-                                                <td>(2)
-                                                    [SolutionConclusionRelation{relation:getMinValue，CommonFunctionRelation{function:
-                                                    <br>$ f(x)=sin(x)-2\sqrt{3}*sin(\frac{x}{2})^{2}
-                                                    $,definitionDomain:R}}]
-                                                </td>
-                                            </tr>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -371,13 +361,7 @@
                                         the Question Relations table, each of which contains one or more specific
                                         knowledge relationships.
                                         Then, the reasoning module receives the result of the natural language
-                                        processing,
-                                        and inserts the common problem, the sub-question and the sub-conclusion
-                                        relationship
-                                        into the knowledge base for reasoning. We can see from the above AutoSolving
-                                        Result
-                                        table that the solution process is based on a strict logical relationship step
-                                        by step.<label id="geometry"></label>
+                                        processing.<label id="geometry"></label>
                                         Finally stop the reasoning and output the result. This forms a complete solution
                                         process.
                                     </div>
@@ -613,7 +597,205 @@
                                 </div>
 
                             </div>
+                        </div>
+                        <hr>
+                        <div style="margin-top: 30px" id="geometry">
+                            <h3 class="text-left " style="font-size: larger">3.2 Geometry Example</h3>
+                            <div style="color: black !important;text-align: left !important;
+                            display: inline-block !important;text-indent: 0px !important;">
+                                <div class="row">
+                                    <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
+                                         class="content">
+                                        The main key to answering the geometric problem lies in its rigorous logic. The
+                                        conclusion of the latter step is derived from the conditions of the previous
+                                        step. This
+                                        must be supported by sufficient evidence. The conclusions to be proved or solved
+                                        from
+                                        the problem to the end must have a very rigorous derivation process. This aspect
+                                        requires a large number of formulas and theorems, and on the other hand we have
+                                        the
+                                        ability to use them flexibly. Only in this way can we solve such problems.
+                                        Here is an Olympic math problem for 2D geometry.
+                                    </div>
+                                </div>
 
+                                <div class="questionboder-geometry">
+                                    <div style="font-size: 20px; margin: 20px 20px" class="row">
+                                        <div class="col-lg-6" style="text-align: justify">
+                                            Suppose point $ A,B,C $ and $ D $
+                                            are four different points arranged in turn on a straight line,
+                                            the line intersects with the circle $ O $ having a diameter $ AC $ at point
+                                            $ X $ ,
+                                            and intersects with the circle $ Q $ having a diameter $ BD $ at point $ Y
+                                            $.
+                                            Line $ XY $ intersects $ BC $ with point $ Z $,if point $ P $ is a point
+                                            different from $ Z $ on line $ XY $
+                                            ,the line $ CP $ intersects with the circle $ O $ having a diameter $ AC $
+                                            at point $ C $
+                                            and $ M $ ,the line $ BP $ intersects with the circle $ Q $ having a
+                                            diameter $ BD $
+                                            at point $ B $ and $ N $.Try to prove : $ AM, XY $ and $ DN $ three lines
+                                            intersect at one point.
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <img src="css/pic1.jpg" style="margin-top: 50px">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <p style="color: #0f0f0f;font-size: 21px; margin:20px 50px">
+                                    After being processed by NLP, we can get following relations.
+                                </p>
+                                <div>
+                                    <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black"><strong>Question
+                                            Relations:</strong>
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    data-target="#table3">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                            </button>
+                                        </p>
+                                    </div>
+                                    <div id="table3" class="collapse" style="margin: 20px 50px">
+                                        <table class="table table-hover table-bordered table-condensed "
+                                               style="text-indent: 0px; color: black">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-lg-1">NO.</th>
+                                                <th class="col-lg-9">Relations</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>CommonQustionRelations:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                    DiameterRelation{diameter=AC, circle=Circle[O]{center=O,
+                                                    analytic=y_O=f(x_O), length=null}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>DiameterRelation{diameter=BD, circle=Circle[Q]{center=Q,
+                                                    analytic=y_Q=f(x_Q), length=null}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>PointRelation:A, PointRelation:B, PointRelation:C</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>LineCrossCircleRelation{line=CP, circle= O, crossPoints=[C, M],
+                                                    crossPointNum=2}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>LineCrossCircleRelation{line=BP, circle= Q, crossPoints=[B, N],
+                                                    crossPointNum=2}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>SubstemRelation:
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>8</td>
+                                                <td>None
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>Conclusion:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>ProveConclusionRelation:[MultiLineCrossRelation{lines=[DN,AM,XY]}]
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p style="color: #0f0f0f;font-size: 21px; margin:0px 65px">
+                                        And,here is the solving result which contains a very detailed process of solving
+                                        problems.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black"><strong>AutoSolving Result:</strong>
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    data-target="#table4">
+                                                <span class="glyphicon glyphicon-chevron-down"></span>
+                                            </button>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div style="margin: 20px 50px" id="table4" class="collapse">
+                                    <table class="table table-hover table-bordered table-condensed"
+                                           style="text-indent: 0px">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-lg-1">NO.</th>
+                                            <th class="col-lg-12">Solving Result</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <div>
+                                                    (1)∵ draw cross point $ E $ of $ AB $ and $ XY $ , draw cross point
+                                                    $ F
+                                                    $ of $ XY $ and $ DN $ (Auxiliary points for automatic addition)
+                                                    <br>
+                                                    (2)∵ $ Y, Z, P, X, E, F $ is collinear<br>
+                                                    (3)∵ $ F, N, D $ is collinear<br>
+                                                    (4)∵ $ A, M, E $ is collinear<br>
+                                                    (5)∵ $ BD $ is the diameter of the circle $ Q $ <br>
+                                                    (6)∵ point $ N $ <br>
+                                                    (7)∴ by(4,5,6): $ Rt \angle BND $ <br>
+                                                    (8)∴ by(7): $ BN \perp DF $ , pedal point is $ N $ <br>
+                                                    (9)∴ by(8): $ Rt \angle BNF $ <br>
+                                                    (10)∵ by(6): $ \vartriangle FNP $ <br>
+                                                    (11)∴ by(9,10): $ Rt \angle FNP $ (vertex is point $ N $)<br>
+                                                    (12)∵ $ \odot O $ <br>
+                                                    (13)∵ $ \odot Q $ <br>
+                                                    (14)∴ by(12,13): $ \odot O $ cross with $ \odot Q $ <br>
+                                                    (15)∴ by(14): $ \odot Q $ is the perpendicular bisector of $ XY
+                                                    $<br>
+                                                    
+                                                    <br>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <div class="row">
+                                    <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
+                                         class="content">
+                                        After 44 steps, the automatic solving system solved this Olympic math problem. We can see that the
+                                        certification process given by the system is very rigorous and meticulous. This
+                                        shows that the  system is very capable of solving problems for geometric problems.
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
