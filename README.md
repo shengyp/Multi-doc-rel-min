@@ -6,6 +6,12 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Markdown
 
+![](https://raw.githubusercontent.com/wiki/zadam/trilium/images/screenshot.png)![](figs/model2.pdf)
+
+To illustrate this, we shall consider an example sentence is ”George .” Such a sentence yields a number of triples, among which we may find (The United States, President, Trump), (noun phrase, relation phrase, noun phrase), (noun phrase, relationphrase, noun phrase).
+
+### Download
+
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
@@ -35,4 +41,3 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 ### Support or Contact
 
 Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
-
