@@ -1,14 +1,23 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/shengyp/Multi-doc-rel-min/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+You can use the [editor on GitHub](https://github.com/shengyp/Multi-doc-rel-min/edit/master/index.md) to maintain and preview the
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Coherence and Salience-Based Multi-Document Relationship Mining
 
-### Markdown
+#### The Framework of Our Approach
 
-![](figs/model2.pdf)![](figs/model2.pdf)
+![](figs/model.png)![](file://C:\Users\dell\Desktop\EventStoryLine\figs\model.png)
 
 To illustrate this, we shall consider an example sentence is ”George .” Such a sentence yields a number of triples, among which we may find (The United States, President, Trump), (noun phrase, relation phrase, noun phrase), (noun phrase, relationphrase, noun phrase).
+
+-   **Document Ranking**
+    
+
+-   **Coreference Resolution**
+    
+
+-   **Sentence Ranking**
+    
 
 ### Download
 
