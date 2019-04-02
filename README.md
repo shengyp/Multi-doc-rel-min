@@ -6,7 +6,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Markdown
 
-![](https://raw.githubusercontent.com/wiki/zadam/trilium/images/screenshot.png)![](figs/model2.pdf)
+![](figs/model2.pdf)![](figs/model2.pdf)
 
 To illustrate this, we shall consider an example sentence is ”George .” Such a sentence yields a number of triples, among which we may find (The United States, President, Trump), (noun phrase, relation phrase, noun phrase), (noun phrase, relationphrase, noun phrase).
 
