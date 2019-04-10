@@ -152,8 +152,7 @@ a:hover {
 .one-page-header .navbar-nav > li > a {
   color: #eee;
   font-size: 12.5px;
-  text-transform: uppercase;
-  padding: 17px 15px 13px;
+  padding: 17px 20px 13px;
 }
 
 .one-page-header .navbar-nav > li > a:before {
