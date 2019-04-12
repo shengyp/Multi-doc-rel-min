@@ -628,7 +628,7 @@ a:hover {
 	font-size: 11px;
 	font-weight: bold;
 	margin: 0 0 25px;
-	text-transform: uppercase;
+/*	text-transform: uppercase;*/
 	line-height: 15px;
 }
 
@@ -745,7 +745,7 @@ a:hover {
 
 .features-text {
 	/* padding: 100px 0 0 20px; */
-	padding: 20px 0 0 20px;
+/*	padding: 20px 0 0 20px;*/
 }
 
 /* Altering g-heading-v10 */

@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en" style="height: auto;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Coherence and Salience-Based Multi-Document Relationship Mining</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="szh">
+
+    <meta name="language" content="English">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/blocks.css">
+    <link rel="stylesheet" href="css/one.style.css">
+    <link rel="stylesheet" href="css/footer-v7.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/app.style.css">
+    <script src="css/jquery-2.1.1.min.js"></script>
+    <script src="css/bootstrap.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <script type="text/javascript" async
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</head>
+
+<body id="body" data-spy="scroll" data-target=".one-page-header" class="demo-lightbox-gallery  pace-done" style="font-family: 'Times New Roman', serif;">
+<div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+<nav class="one-page-header navbar navbar-default navbar-fixed-top homeapp-header" data-role="navigation">
+    <div class="container">
+        <div class="collapse navbar-collapse ">
+            <div class="menu-container">
+                <ul class="nav navbar-nav">
+                    <li class="page-scroll"><a href="#abstract" style="font-size: 14px">ABSTRACT</a>
+                    </li>
+                    <li class="page-scroll"><a href="#solutions" style="font-size: 14px">OUR APPROACH</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a data-toggle="dropdown" href="#" style="font-size: 14px;margin-bottom: 5px">
+                            APPROACH IMPLEMENTATION<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#fact_extr" style="font-size: 14px">Candidate Facts Extraction</a></li>
+                            <li><a href="#estimate_coher" style="font-size: 14px">Topic Coherence Estimation of Candidate Facts</a></li>
+                            <li><a href="#cg" style="font-size: 14px">Conceptual Graph Construction</a></li>
+                        </ul>
+                    </li>
+                    <li class="page-scroll"><a href="#exp" style="font-size: 14px">EXPERIMENTAL RESULTS</a>
+                    </li>
+                    <li class="page-scroll"><a href="#downloads" style="font-size: 14px">DOWNLOADS</a>
+                    </li>
+
+                    <li class="page-scroll"><a href="#references" style="font-size: 14px">REFERENCES</a>
+                    </li>
+                    <li class="page-scroll"><a href="#acknowledgement" style="font-size: 14px">ACKNOWLEDGEMENT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<section class="promo-section" id="intro">
+    <div class="interactive-slider-v2">
+        <div class="container">
+            <div class="row">
+                <div class="authautherer">
+                    <h2 style="text-align: center;font-size: 35px;line-height: 1.3;color: black">
+                        <!--<i>ASSEMP:</i> -->
+                        <br/>
+                        Coherence and Salience-Based Multi-Document Relationship Mining
+                    </h2>
+                    <br/>
+                    <!-- <p class="author"><strong> Xiuqin Zhong</strong> and <strong>Iryna Gurevych</strong></p> -->
+                    <!--                     <p class="orgnization">University of Electronic Science and Technology of China</p>
+                                        <p class="orgnization">Department of Computer Science, Technische Universit¨ at Darmstadt</p> -->
+                    <span style="margin-right: 10px"><a href="http://smilelab.uestc.edu.cn/members/shengyongpan/"
+                             class="author">Yongpan Sheng</a><sup class="auther-order">1 </sup></span>
+                    <span style="margin-right: 10px"><a href="http://smilelab.uestc.edu.cn/members/xuzenglin/" class="author">Zenglin Xu</a><sup
+                            class="auther-order">1 </sup></span>
+       <!--              <span style="margin-right: 10px"><a href="" class="author">Chaoran Huang</a><sup class="auther-order">2</sup></span> -->
+                    <span style="margin-right: 10px"><a href="http://gerard.demelo.org/" class="author">Gerard de Melo</a><sup class="auther-order">2</sup></span>
+                </div>
+                <p></p>
+                <div class="auther-apart">
+                    <span><sup class="auther-order">1</sup><a href="http://www.uestc.edu.cn" class="orgnization">University of Electronic Science and Technology of China, China</a></span>
+                    <span style="text-align: left;margin-right: 10px">&nbsp;&nbsp;<sup class="auther-order">2</sup><a href="http://www.ustc.edu.cn/" class="orgnization">Rutgers University, USA</a></span>
+                <!--     <span><sup class="auther-order">2</sup><a href="http://www.sdu.edu.cn/" class="orgnization">University of New South Wales, Australia</a></span> -->
+                </div>
+                <p></p>
+                <p></p>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="abstract">
+    <div class="container">
+        <div class="g-pt-70">
+            <div class="g-heading-v10 g-mb-30">
+                <p class="block-name"><span>1.</span> Abstract</p>
+            </div>
+            <div class="row" style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
+                In today's interconnected world, there is an endless 24/7 stream of new articles appearing online. Faced with these overwhelming amounts of data, it is often helpful to consider only the key entities and concepts and their relationships. This is challenging, as relevant connections may be spread across a number of disparate articles and sources. In this paper, we propose a unified framework to aid users in quickly discerning salient connections and facts from a set of related documents, and presents the resulting information in a graph-based visualization. Specifically, given a set of relevant documents as input, first, we extract candidate facts from above sources by leveraging Open Information Extraction (Open IE) approaches. Then, we design a Two-Stage Candidate Triple Filtering (TCTF) approach to maintain only coherent facts associated with the specified document topic from the candidates and connect them in form of an initial graph. We also present a heuristic to obtain a final conceptual graph based on the graph in which the salient entities and concepts can be included. Our graph visualization then allows users to explore these connections. The experiments on two real-world data sets illustrate that our extraction approach achieves 3.2% higher on the average of F-score over several OpenIE baselines. We also further present an empirical evaluation of the quality of the final generated conceptual graph towards different topics on its coverage rate of topic entities and concepts, confidence score, and the compatibility of involved facts. Experimental results show the effectiveness of our proposed approach.
+            </div>
+        </div>
+</section>
+
+<section id="solutions">
+    <div class="container">
+        <div class="g-pt-70 g-pb-30">
+            <div class="g-heading-v10 g-mb-30 ">
+                <p class="block-name"><span>2. </span>Our Approach</p>
+            </div>
+            <div class="row equal-height-columns">
+                <div class="content">
+                    <div class="animated fadeIn wow animated" data-wow-duration="1.5s"
+                         style="visibility: visible; animation-duration: 1.5s; animation-name: fadeIn;">
+                        <div class="benefit" style="padding-left: 0">
+                            <!-- <h3 class="text-left " style="font-size: larger">Human-like Answering System </h3> -->
+                                <div style="font-size: 21px;color:black; padding-left: 65px !important; padding-right: 65px !important;text-indent: 0em;"
+                                     class="content" >
+                                    Problem Formulation
+                                </div>
+                            <div style="padding-top: 15px;text-align: left;text-indent: 0em;">
+                                <!--   <ol>
+                                      <li class="imagelist">User interface: After entering a search term (1), the system
+                                          displays retrieved documents
+                                          (right) and a graph built from them (left).
+                                      </li>
+                                  </ol> -->
+                                <div style="font-size: 21px;color:black; padding-left: 20px !important; padding-right: 20px !important;" class="content">
+                                    Our task is aimed to assist users in quickly finding salient connections and facts
+                                    from a collection of relevant articles, and in summary, it can be best described as
+                                    a combination of three major subtasks:
+                                </div>
+                                <div style="margin: 20px 60px">
+                                    <p style="font-size: 21px;color: black">
+                                        <button type="button" class="btn" data-toggle="collapse"
+                                                style="padding:0;width: 90px;height:22px;background:rgba(0,255,0,0.5);border-radius: 2px"
+                                                data-target="#g1">
+                                            <b>Subtask 1</b>
+                                        </button>
+                                    &nbsp;
+                                    <div style="margin: 20px 50px;color: black" id="g1" class="collapse">
+                                        <table class="table table-hover table-bordered table-condensed"
+                                               style="text-indent: 0px">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-lg-1">NO.</th>
+                                                <th class="col-lg-12">Solving Result</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>
+                                                    <div>
+                                                        <br>
+                                                        – In Titles, the frequency of candidates in document titles is
+                                                        divided into three cases: greater than 13.40, less than 3.16,
+                                                        and between 3.16 and 13.40. Three binary
+                                                        features are used to represent these cases.
+                                                        <br>
+                                                        <br>
+                                                        – Redundance, this is defined as the ratio of the size of
+                                                        candidates that have same
+                                                        subject s, relation r and object o with the candidate triple f
+                                                        to the total number of
+                                                        candidates, these extracted redundant facts are from different
+                                                        sentences within and
+                                                        across the documents
+                                                        <br>
+                                                        <br>
+                                                        – Similarity, this is defined as the ratio of the number of
+                                                        candidates that are similar to
+                                                        the candidate triple f over the total number of candidates, i.e.
+                                                        <br>
+                                                        <br>
+                                                        <strong style="text-align: center">Sim(<i>f, l</i>) = count
+                                                            <small><i>sim</i></small>
+                                                            (<i>f, l</i>)/count(<i>l</i>)</strong>
+                                                        <br>
+                                                        <br>
+                                                        where countsim(f, l) denotes the number of similar candidates of
+                                                        f in candidates
+                                                        l, count(l) is the total number of candidates. The similarity
+                                                        scores between two
+                                                        candidate fact fi,fj is computed as
+                                                        <small><i>sim</i></small>
+                                                        (fi,fj) = γs˙k + (1 − γ)lk
+                                                        , where sk,lk denote the semantic similarity and literal
+                                                        similarity scores between the facts,
+                                                        respectively. We compute sk using the Align, Disambiguate and
+                                                        Walk algorithm 5,while lk are computed using the Jaccard index.
+                                                        γ = 0.8 denotes the relative
+                                                        degree to which the semantic similarity contributes to the
+                                                        overall similarity score,
+                                                        as opposed to the literal similarity.
+                                                        <br>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div style="margin: 20px 60px">
+                                    <p style="font-size: 21px;color: black">
+                                        <button type="button" class="btn" data-toggle="collapse"
+                                                style="padding:0;width: 90px;height:22px;background: rgba(0,0,255,0.5);border-radius: 2px"
+                                                data-target="#g2">
+                                            <b>Subtask 2</b>
+                                        </button>
+                                    </p>
+                                    <div style="margin: 20px 60px;color: black" id="g2" class="collapse">
+                                        <table class="table table-hover table-bordered table-condensed"
+                                               style="text-indent: 0px">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-lg-1">NO.</th>
+                                                <th class="col-lg-12">Solving Result</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                    <div>
+                                                        <br>
+                                                        – Relation Context, the ratio of the size of context of the
+                                                        relation r in the candidate
+                                                        triple f over the total number of candidates, i.e.
+                                                        <br>
+                                                        <br>
+                                                        <strong style="text-align: center">
+                                                            RelC<small><i>xt</i></small>
+                                                            (<i>rf,l</i>) = count<small><i>context</i></small>(rf)
+                                                            /count(<i>l</i>)
+                                                        </strong>
+                                                        <br>
+                                                        <br>
+                                                        where count<small><i>context</i></small>(rf) denotes the size of relation context of r in f, which is consist of the candidates that have same relation r with f, and count(l) is the total
+                                                        number of candidates
+                                                        <br>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div style="margin: 20px 60px">
+                                    <p style="font-size: 21px;color: black">
+                                        <button type="button" class="btn" data-toggle="collapse"
+                                                style="padding:0;width: 90px;height:22px;background: rgba(255,0,0,0.5);border-radius: 2px"
+                                                data-target="#g3">
+                                            <b>Subtask 3</b>
+                                        </button>
+                                    </p>
+                                    <div style="margin: 20px 50px;color: black" id="g3" class="collapse">
+                                        <table class="table table-hover table-bordered table-condensed"
+                                               style="text-indent: 0px">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-lg-1">NO.</th>
+                                                <th class="col-lg-12">Solving Result</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>
+                                                    <div>
+                                                        <br>
+                                                        – Compatibility, the compatibility between the relation context of the relation r in
+                                                        the candidate triple f and the semantic information of f itself, i.e.
+                                                        <br>
+                                                        <br>
+                                                        <strong style="text-align: center">
+                                                            C<small><i>mp</i></small>(<i>rf,fht</i>) =  RelC<small><i>xt</i></small>(<i>rf,l</i>) · (<i>1 − &isin;+ &isin;</i> · S<i>em</i>(f<small><i>ht</i></small>, <small><i>context<i>(rf)</i></i></small>))
+                                                        </strong>
+                                                        <br>
+                                                        <br>
+                                                        Here, the first term RelCxt(rf , l) denotes the relation context of r in f as computed in Equation 2; the second term denotes the ratio of the number of candidates
+                                                        that have same subject s or object o with f from RelCxt(rf , l), which is calculated by S<i>em</i>(<small><i>(rf , f<i>ht</i>)</i></small>= count<small><i>fht</i></small>/count<small><i>context</i></small>(rf).Parameter<i> &isin;</i> is used for smoothing as
+                                                        well as to control the influence of the relation context, and is fixed to 0.5 in our
+                                                        implementation.
+                                                        <br>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="font-size: 21px;color:black; padding-left: 20px !important; padding-right: 20px !important;" class="content">
+                                    The framework of our approach can be shown in Figure 1. It also comprise three major phases in order to address the problems associated with the subtasks as we have discussed earlier.
+                            </div>
+                            <div style="padding-top: 10px">
+                                <img src="css/system.jpg" align="center" width="90%">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</section>
+
+<section id="case1">
+    <div class="container">
+        <div class="g-pt-70">
+            <div class="g-heading-v10 g-mb-30">
+                <p class="block-name"><span>3. </span>Approach Implementation</p>
+            </div>
+            <div class="row">
+                <div class="content">
+                    <div class="benefit">
+                        <hr>
+                        <div id="fact_extr" style="margin-top: -100px;padding-top: 100px;">
+                            <h3 class="text-left" style="font-size: larger">3.1  Candidate Facts Extraction</h3>
+                            <div style="color: black !important;text-align: left !important;
+                            display: inline-block !important; text-indent: 0px">
+                                <div class="row">
+                                    <div style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
+                                        Algebraic problem 
+                                    </div>
+                                </div>
+
+                                <div class="questionboder">
+                                    <div style="font-size: 20px; margin: 20px 20px"> Here is the function $
+                                        f(x)=sin(x)-2\sqrt{3}*sin(\frac{x}{2})^{2} $.
+                                    </div>
+                                    <div style="font-size: 20px;margin: 20px 20px"> (1) Get the minimum cycle of
+                                        function
+                                        $ f(x) $.
+                                    </div>
+                                    <div style="font-size: 20px;margin: 20px 20px">(2) Get the minimum value of function
+                                        $ f(x) $ at $ [0,\frac{2π}{3}] $.
+                                    </div>
+                                </div>
+
+                                <p style="color: #0f0f0f;font-size: 21px; margin:20px 50px">
+                                    After being processed by NLP, we can get following relations.
+                                </p>
+                                <div>
+                                    <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black">
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    style="padding:0;width: 180px;height:30px;background: rgba(0,0,255,0.5);border-radius: 2px"
+                                                    data-target="#table1">
+                                                <b>Question Relations:</b>
+                                            </button>
+                                        </p>
+                                    </div>
+                                    <div id="table1" class="collapse" style="margin: 20px 50px">
+                                        <table class="table table-hover table-bordered table-condensed "
+                                               style="text-indent: 0px; color: black">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-lg-1">NO.</th>
+                                                <th class="col-lg-9">Relations</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>CommonQustionRelations:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                    CommonFunctionRelation{function:$
+                                                    f(x)=sin(x)-2\sqrt{3}*sin(\frac{x}{2})^{2} $,definitionDomain:R}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>SubstemRelation:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>(1) None</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p style="color: #0f0f0f;font-size: 21px; margin:0px 65px">
+                                        And,here is the solving result which contains a very detailed process of solving
+                                        problems.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black">
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    style="padding:0;width: 180px;height:30px;background: rgba(0,0,255,0.5);border-radius: 2px"
+                                                    data-target="#table2">
+                                                <b>AutoSolving Result:</b>
+                                            </button>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div style="margin: 20px 50px" id="table2" class="collapse">
+                                    <table class="table table-hover table-bordered table-condensed"
+                                           style="text-indent: 0px">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-lg-1">NO.</th>
+                                            <th class="col-lg-12">Solving Result</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <div>
+                                                    (1)∵ $ f(x)=sin(x)-2\sqrt{3}*sin(\frac{x}{2})^{2} $<br>
+                                                    (2)∴ by (1): $ sin(x)-2\sqrt{3}*sin(\frac{x}{2})^{2}
+                                                    $<br>
+                                                    (3)∴ by (2): $
+                                                    sin(x)-2\sqrt{3}+2\sqrt{3}*cos(\frac{x}{2}) $
+                                                    <br>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <div>
+                                                    (1)∵ $ f(x)=sin(x)-2\sqrt{3}*sin(\frac{x}{2})^{2} $<br>
+                                                    (2)∴ by (1): $ sin(x)-2\sqrt{3}*sin(\frac{x}{2})^{2}
+                                                    $<br>
+                                                    (3)∴ by (2): $
+                                                    sin(x)-2\sqrt{3}+2\sqrt{3}*cos(\frac{x}{2}) $
+                                                    <br>
+                                                    (4)∴ by (3): $ sin(x)-\sqrt{3}+\sqrt{3}*cos(x) $.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
+                                         class="content">
+                                        The above examples are presented in terms of natural language understanding and
+                                        human-like problem solving.
+                                        First, we enter the question number to get the specific topic content. Secondly,
+                                        the natural language processing
+                                        module analyzes and understands the topics and conclusions and translates them
+                                        into corresponding knowledge relationships.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- estimate_coher -->
+                        <div style="margin-top: -100px;padding-top: 100px;" id="estimate_coher">
+                            <h3 class="text-left" style="font-size: larger">3.2 Topic Coherence Estimation of Candidate Facts</h3>
+                            <div style="color: black !important;text-align: left !important;
+                            display: inline-block !important;text-indent: 0px !important;">
+                                <div class="row">
+                         <!--            <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
+                                         class="content">
+                                         
+                                    </div> -->
+                                    <div style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
+                                        The main key to answering the geometric problem lies in its rigorous logic.
+                                    </div>
+                                </div>
+                                <p style="color: #0f0f0f;font-size: 21px; margin:20px 50px">
+                                    After being processed by NLP, we can get following relations.
+                                </p>
+                                <div>
+                                    <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black">
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    style="padding:0;width: 180px;height:30px;background: rgba(0,255,0,0.5);border-radius: 2px"
+                                                    data-target="#table3">
+                                                <b>Question Relations:</b>
+                                            </button>
+                                        </p>
+                                    </div>
+                                    <div id="table3" class="collapse" style="margin: 20px 50px">
+                                        <table class="table table-hover table-bordered table-condensed "
+                                               style="text-indent: 0px; color: black">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-lg-1">NO.</th>
+                                                <th class="col-lg-9">Relations</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>CommonQustionRelations:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                    DiameterRelation{diameter=AC, circle=Circle[O]{center=O,
+                                                    analytic=y_O=f(x_O), length=null}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>DiameterRelation{diameter=BD, circle=Circle[Q]{center=Q,
+                                                    analytic=y_Q=f(x_Q), length=null}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>PointRelation:A, PointRelation:B, PointRelation:C</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>LineCrossCircleRelation{line=CP, circle= O, crossPoints=[C, M],
+                                                    crossPointNum=2}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>LineCrossCircleRelation{line=BP, circle= Q, crossPoints=[B, N],
+                                                    crossPointNum=2}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>SubstemRelation:
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>8</td>
+                                                <td>None
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>Conclusion:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>ProveConclusionRelation:[MultiLineCrossRelation{lines=[DN,AM,XY]}]
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p style="color: #0f0f0f;font-size: 21px; margin:0px 65px">
+                                        And,here is the solving result which contains a very detailed process of solving
+                                        problems.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black">
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    style="padding:0;width: 180px;height:30px;background: rgba(0,255,0,0.5);border-radius: 2px"
+                                                    data-target="#table4">
+                                                <b>Question Relations:</b>
+                                            </button>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div style="margin: 20px 50px" id="table4" class="collapse">
+                                    <table class="table table-hover table-bordered table-condensed"
+                                           style="text-indent: 0px">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-lg-1">NO.</th>
+                                            <th class="col-lg-12">Solving Result</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <div>
+                                                    (1)∵ draw cross point $ E $ of $ AB $ and $ XY $ , draw cross point
+                                                    $ F
+                                                    $ of $ XY $ and $ DN $ (Auxiliary points for automatic addition)
+                                                    <br>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <div class="row">
+                                    <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
+                                         class="content">
+                                        After 44 steps, the automatic solving system solved this Olympic math problem.
+                                        We can see that the
+                                        certification process given by the system is very rigorous and meticulous. This
+                                        shows that the system is very capable of solving problems for geometric
+                                        problems.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div style="margin-top: -100px;padding-top: 100px;" id="cg">
+                            <h3 class="text-left" style="font-size: larger">3.3 Conceptual Graph Construction</h3>
+                            <div style="color: black !important;text-align: left !important;
+                            display: inline-block !important;text-indent: 0px !important;">
+                                <div class="row">
+                      <!--               <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
+                                         class="content">
+                                        The main
+                                    </div> -->
+                                    <div style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
+                                        Conceptual graph construction.
+                                    </div>
+                                </div>
+
+                                <div class="questionboder-geometry">
+                                    <div style="font-size: 20px; margin: 20px 20px" class="row">
+                                        <div class="col-lg-6" style="text-align: justify">
+                                            Suppose point $ A,B,C $ and $ D $
+                                            are four different points arranged in turn on a straight line,
+                                            the line intersects with the circle $ O $ having a diameter $ AC $ at point
+                                            $ X $ ,
+                                            and intersects with the circle $ Q $ having a diameter $ BD $ at point $ Y
+                                            $.
+                                            Line $ XY $ intersects $ BC $ with point $ Z $,if point $ P $ is a point
+                                            different from $ Z $ on line $ XY $
+                                            ,the line $ CP $ intersects with the circle $ O $ having a diameter $ AC $
+                                            at point $ C $
+                                            and $ M $ ,the line $ BP $ intersects with the circle $ Q $ having a
+                                            diameter $ BD $
+                                            at point $ B $ and $ N $.Try to prove : $ AM, XY $ and $ DN $ three lines
+                                            intersect at one point.
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <img src="css/pic1.jpg" style="margin-top: 50px">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <p style="color: #0f0f0f;font-size: 21px; margin:20px 50px">
+                                    After being processed by NLP, we can get following relations.
+                                </p>
+                                <div>
+                                    <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black">
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    style="padding:0;width: 180px;height:30px;background: rgba(255,0,0,0.5);border-radius: 2px"
+                                                    data-target="#table3">
+                                                <b>Question Relations:</b>
+                                            </button>
+                                        </p>
+                                    </div>
+                                    <div id="table3" class="collapse" style="margin: 20px 50px">
+                                        <table class="table table-hover table-bordered table-condensed "
+                                               style="text-indent: 0px; color: black">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-lg-1">NO.</th>
+                                                <th class="col-lg-9">Relations</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>CommonQustionRelations:</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>
+                                                    DiameterRelation{diameter=AC, circle=Circle[O]{center=O,
+                                                    analytic=y_O=f(x_O), length=null}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>DiameterRelation{diameter=BD, circle=Circle[Q]{center=Q,
+                                                    analytic=y_Q=f(x_Q), length=null}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>PointRelation:A, PointRelation:B, PointRelation:C</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>LineCrossCircleRelation{line=CP, circle= O, crossPoints=[C, M],
+                                                    crossPointNum=2}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>None
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p style="color: #0f0f0f;font-size: 21px; margin:0px 65px">
+                                        And,here is the solving result which contains a very detailed process of solving
+                                        problems.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div style="margin: 20px 50px">
+                                        <p style="font-size: 21px;color: black">
+                                            <button type="button" class="btn" data-toggle="collapse"
+                                                    style="padding:0;width: 180px;height:30px;background: rgba(255,0,0,0.5);border-radius: 2px"
+                                                    data-target="#table4">
+                                                <b>Question Relations:</b>
+                                            </button>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div style="margin: 20px 50px" id="table4" class="collapse">
+                                    <table class="table table-hover table-bordered table-condensed"
+                                           style="text-indent: 0px">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-lg-1">NO.</th>
+                                            <th class="col-lg-12">Solving Result</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <div>
+                                                    (1)∵ draw cross point $ E $ of $ AB $ and $ XY $ , draw cross point
+                                                    $ F
+                                                    $ of $ XY $ and $ DN $ (Auxiliary points for automatic addition)
+                                                    <br>
+                                                    (2)∵ $ Y, Z, P, X, E, F $ is collinear<br>
+                                                    (3)∵ $ F, N, D $ is collinear<br>
+                                                    (4)∵ $ A, M, E $ is collinear<br>
+                                                    (5)∵ $ BD $ is the diameter of the circle $ Q $ <br>
+                                                    (6)∵ point $ N $ <br>
+                                                    (7)∴ by(4,5,6): $ Rt \angle BND $ <br>
+                                                    (8)∴ by(7): $ BN \perp DF $ , pedal point is $ N $ <br>
+                                                    (9)∴ by(8): $ Rt \angle BNF $ <br>
+                                                    (10)∵ by(6): $ \vartriangle FNP $ <br>
+                                                    (11)∴ by(9,10): $ Rt \angle FNP $ (vertex is point $ N $)<br>
+                                                    <br>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <div class="row">
+                                    <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
+                                         class="content">
+                                        After 44 steps, the automatic solving system solved this Olympic math problem.
+                                        We can see that the
+                                        certification process given by the system is very rigorous and meticulous. This
+                                        shows that the system is very capable of solving problems for geometric
+                                        problems.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="exp">
+    <div class="container">
+        <div class="g-pt-70 g-pb-30">
+            <div class="g-heading-v10 g-mb-30 ">
+                <p class="block-name"><span>4. </span>Experimental Results</p>
+            </div>
+            <div class="row equal-height-columns">
+                <div class="content">
+                    <div class="animated fadeIn wow animated" data-wow-duration="1.5s"
+                         style="visibility: visible; animation-duration: 1.5s; animation-name: fadeIn;">
+                        <div class="benefit" style="padding-left: 0">
+                            <!-- <h3 class="text-left " style="font-size: larger">Human-like Answering System </h3> -->
+                                <div style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
+                                        The main key to answering the geometric problem lies in its rigorous logic.
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</section>
+
+<section id="downloads">
+    <div class="container-fluid with-bg-1">
+        <div class="container">
+            <div class="features">
+                <div class="g-pt-70 g-pb-30">
+                    <div class="g-heading-v10 g-mb-30 ">
+                        <p class="block-name"><span>4. </span>Downloads</p>
+                    </div>
+                    <div style="color: #0f0f0f; font-size: 18px; margin:10px 60px">To facilitate further research on this topic, we have made the source code and dataset of proposed framework publicly available. If you will leverage these resources, please cite our paper.
+                    </div>
+                    <br/>
+
+                    <div style="color: #0f0f0f; font-size: 18px; margin:10px 60px">Code will be updated after the work be accepted.
+                    <br/>
+                    github://
+                    </div>            
+                </div>
+            </div>
+            <div class="row" align="center">
+                <!-- <iframe height=540 width=960
+                         src='https://open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=e7cce029df12c1500a390f6a00cad118&tvId=479817700&accessToken=2.f22860a2479ad60d8da7697274de9346&appKey=3955c3425820435e86d0f4cdfe56f5e7&appId=1368&height=100%&width=100%'
+                         frameborder=0
+                 'allowfullscreen'>
+                 </iframe>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="references">
+    <div class="container">
+        <div>
+            <div class="subscribe">
+                <div class="g-heading-v10 g-mb-30 ">
+                    <p class="block-name"><span>5. </span>References</p>
+                </div>
+                <div class="row equal-height-columns">
+                    <div class="content">
+                        <ol style="text-indent: 0px;">
+                            <li class="g-pb-10">Fu, Hongguang, et al. Geometry Knowledge Base Learning from Theorem
+                                Proofs. Knowledge Engineering and Management. Springer Berlin Heidelberg, 2014:21-33.
+                            </li>
+                            <li class="g-pb-10">Matsuzaki, Takuya, et al. "Semantic Parsing of Pre-university Math
+                                Problems." Meeting of the Association for Computational Linguistics 2017:2131-2141.
+                            </li>
+                            <li class="g-pb-10">Matuga, Julia M, and J. M. Turos. "The Promise of an All‐In‐One
+                                Assessment System for Student Learning Outcomes: Bowling Green State University's
+                                Excellence in Assessment Designation (EIA)." Assessment Update 30(2018).
+                            </li>
+                            <li class="g-pb-10">Sachan, Mrinmaya, K. Dubey, and E. Xing. "From Textbooks to Knowledge: A
+                                Case Study in Harvesting Axiomatic Knowledge from Textbooks to Solve Geometry Problems."
+                                Conference on Empirical Methods in Natural Language Processing 2017:773-784.
+                            </li>
+                            <li class="g-pb-10">Upadhyay, Shyam, et al. "Learning from Explicit and Implicit Supervision
+                                Jointly For Algebra Word Problems." Conference on Empirical Methods in Natural Language
+                                Processing 2016:297-306.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="acknowledgement">
+    <div class="container">
+        <div class="whats-new">
+            <div class="g-heading-v10 g-mb-10 text-center">
+                <div class="g-heading-v10 g-mb-30 ">
+                    <p class="block-name"><span>6.</span> Acknowledgement</p>
+                </div>
+            </div>
+            <p class="content"></p>
+            <div style="color: #0f0f0f; font-size: 18px; margin:10px 60px">The authors wish to thank the anonymous reviewers for their helpful comments. This work was partially supported by National Natural Science Foundation of China (Nos.61572111 and 61876034), and a Fundamental Research Fund for the Central Universities of China (No.ZYGX2016Z003).
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contactus">
+    <div class="container-fluid with-bg-2 no-side-padding">
+        <div class="container">
+            <div class="footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="g-heading-v10 g-mb-65 " style="margin-bottom: 10px;">
+                            <h3 style="font-size: 30px;color: black; padding-left: 19px;">7. Contact us
+                            </h3>
+                            <div style="margin-left: 50px;font-size: 15px">
+                                <p>If you are interested in our works or have any problem, do not hesitate to contact
+                                    our group.</p>
+                                <p>Email: <a style="color:#4a4848" href="#">shengyp2011@163.com, zenglin@gmail.com</a>
+                                </p>
+                                <p>TEL: 028-xxxxxxxx</p>
+                                <p>Address: No.2006, Xiyuan Ave, West Hi-Tech Zone, 611731 | Chengdu, Sichuan,
+                                    P.R.China</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
