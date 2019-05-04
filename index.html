@@ -17,26 +17,13 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/app.style.css">
+    <link rel="stylesheet" href="css/paper-style.css">
     <script src="css/jquery-2.1.1.min.js"></script>
     <script src="css/bootstrap.min.js"></script>
     <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -132,7 +119,7 @@
                 <p class="block-name"><span>1.</span> Abstract</p>
             </div>
             <div class="row" style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
-                In today's interconnected world, there is an endless 24/7 stream of new articles appearing online. Faced with these overwhelming amounts of data, it is often helpful to consider only the key entities and concepts and their relationships. This is challenging, as relevant connections may be spread across a number of disparate articles and sources. In this paper, we propose a unified framework to aid users in quickly discerning salient connections and facts from a set of related documents, and presents the resulting information in a graph-based visualization. Specifically, given a set of relevant documents as input, first, we extract candidate facts from above sources by leveraging Open Information Extraction (Open IE) approaches. Then, we design a Two-Stage Candidate Triple Filtering (TCTF) approach to maintain only coherent facts associated with the specified document topic from the candidates and connect them in form of an initial graph. We also present a heuristic to obtain a final conceptual graph based on the graph in which the salient entities and concepts can be included. Our graph visualization then allows users to explore these connections. The experiments on two real-world data sets illustrate that our extraction approach achieves 3.2% higher on the average of F-score over several OpenIE baselines. We also further present an empirical evaluation of the quality of the final generated conceptual graph towards different topics on its coverage rate of topic entities and concepts, confidence score, and the compatibility of involved facts. Experimental results show the effectiveness of our proposed approach.
+                In today's interconnected world, there is an endless 24/7 stream of new articles appearing online. Faced with these overwhelming amounts of data, it is often helpful to consider only the key entities and concepts and their relationships. This is challenging, as relevant connections may be spread across a number of disparate articles and sources. In this paper, we propose a unified framework to aid users in quickly discerning salient connections and facts from a set of related documents and presents the resulting information in a graph-based visualization. Specifically, given a set of relevant documents as input, first, we extract candidate facts from the above sources by leveraging Open Information Extraction (Open IE) approaches. Then, we design a Two-Stage Candidate Triple Filtering (TCTF) approach to maintain only coherent facts associated with the specified document topic from the candidates and connect them in the form of an initial graph. We also present a heuristic to obtain a final conceptual graph based on the graph in which the salient entities and concepts can be included. Our graph visualization then allows users to explore these connections. The experiments on two real-world data sets illustrate that our extraction approach achieves 3.2% higher on the average of F-score over several OpenIE baselines. We also further present an empirical evaluation of the quality of the final generated conceptual graph towards different topics on its coverage rate of topic entities and concepts, confidence score, and the compatibility of involved facts. Experimental results show the effectiveness of our proposed approach.
             </div>
         </div>
 </section>
@@ -149,10 +136,13 @@
                          style="visibility: visible; animation-duration: 1.5s; animation-name: fadeIn;">
                         <div class="benefit" style="padding-left: 0">
                             <!-- <h3 class="text-left " style="font-size: larger">Human-like Answering System </h3> -->
-                                <div style="font-size: 21px;color:black; padding-left: 65px !important; padding-right: 65px !important;text-indent: 0em;"
+                                <!--
+                                <div style="font-size: 21px;color:black; padding-left: 20px !important; padding-right: 65px !important;text-indent: 0em; font-weight: bold;"
                                      class="content" >
                                     Problem Formulation
                                 </div>
+                                -->
+                                <h3 class="subtitle" style="margin-top: -40px; padding-top: 60px;">Problem Formulation</h3>
                             <div style="padding-top: 15px;text-align: left;text-indent: 0em;">
                                 <!--   <ol>
                                       <li class="imagelist">User interface: After entering a search term (1), the system
@@ -167,8 +157,7 @@
                                 </div>
                                 <div style="margin: 20px 60px">
                                     <p style="font-size: 21px;color: black">
-                                        <button type="button" class="btn" data-toggle="collapse"
-                                                style="padding:0;width: 90px;height:22px;background:rgba(0,255,0,0.5);border-radius: 2px"
+                                        <button type="button" class="btn toggle-btn" data-toggle="collapse"
                                                 data-target="#g1">
                                             <b>Subtask 1</b>
                                         </button>
@@ -176,152 +165,55 @@
                                     <div style="margin: 20px 50px;color: black" id="g1" class="collapse">
                                         <table class="table table-hover table-bordered table-condensed"
                                                style="text-indent: 0px">
-                                            <thead>
+                                        <thead>
+                                            <tr><th>Candidate Facts Extraction</th></tr>
+                                        </thead>
+                                        <tbody>
                                             <tr>
-                                                <th class="col-lg-1">NO.</th>
-                                                <th class="col-lg-12">Solving Result</th>
+                                                <td>More descriptions here</td>
                                             </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>
-                                                    <div>
-                                                        <br>
-                                                        – In Titles, the frequency of candidates in document titles is
-                                                        divided into three cases: greater than 13.40, less than 3.16,
-                                                        and between 3.16 and 13.40. Three binary
-                                                        features are used to represent these cases.
-                                                        <br>
-                                                        <br>
-                                                        – Redundance, this is defined as the ratio of the size of
-                                                        candidates that have same
-                                                        subject s, relation r and object o with the candidate triple f
-                                                        to the total number of
-                                                        candidates, these extracted redundant facts are from different
-                                                        sentences within and
-                                                        across the documents
-                                                        <br>
-                                                        <br>
-                                                        – Similarity, this is defined as the ratio of the number of
-                                                        candidates that are similar to
-                                                        the candidate triple f over the total number of candidates, i.e.
-                                                        <br>
-                                                        <br>
-                                                        <strong style="text-align: center">Sim(<i>f, l</i>) = count
-                                                            <small><i>sim</i></small>
-                                                            (<i>f, l</i>)/count(<i>l</i>)</strong>
-                                                        <br>
-                                                        <br>
-                                                        where countsim(f, l) denotes the number of similar candidates of
-                                                        f in candidates
-                                                        l, count(l) is the total number of candidates. The similarity
-                                                        scores between two
-                                                        candidate fact fi,fj is computed as
-                                                        <small><i>sim</i></small>
-                                                        (fi,fj) = γs˙k + (1 − γ)lk
-                                                        , where sk,lk denote the semantic similarity and literal
-                                                        similarity scores between the facts,
-                                                        respectively. We compute sk using the Align, Disambiguate and
-                                                        Walk algorithm 5,while lk are computed using the Jaccard index.
-                                                        γ = 0.8 denotes the relative
-                                                        degree to which the semantic similarity contributes to the
-                                                        overall similarity score,
-                                                        as opposed to the literal similarity.
-                                                        <br>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </tbody>
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>
                                 <div style="margin: 20px 60px">
                                     <p style="font-size: 21px;color: black">
-                                        <button type="button" class="btn" data-toggle="collapse"
-                                                style="padding:0;width: 90px;height:22px;background: rgba(0,0,255,0.5);border-radius: 2px"
+                                        <button type="button" class="btn toggle-btn" data-toggle="collapse"
                                                 data-target="#g2">
                                             <b>Subtask 2</b>
                                         </button>
                                     </p>
-                                    <div style="margin: 20px 60px;color: black" id="g2" class="collapse">
+                                    <div style="margin: 20px 50px;color: black" id="g2" class="collapse">
                                         <table class="table table-hover table-bordered table-condensed"
                                                style="text-indent: 0px">
-                                            <thead>
+                                        <thead>
+                                            <tr><th>Topic Coherence Estimation of Candidate Facts</th></tr>
+                                        </thead>
+                                        <tbody>
                                             <tr>
-                                                <th class="col-lg-1">NO.</th>
-                                                <th class="col-lg-12">Solving Result</th>
+                                                <td>More descriptions here</td>
                                             </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    <div>
-                                                        <br>
-                                                        – Relation Context, the ratio of the size of context of the
-                                                        relation r in the candidate
-                                                        triple f over the total number of candidates, i.e.
-                                                        <br>
-                                                        <br>
-                                                        <strong style="text-align: center">
-                                                            RelC<small><i>xt</i></small>
-                                                            (<i>rf,l</i>) = count<small><i>context</i></small>(rf)
-                                                            /count(<i>l</i>)
-                                                        </strong>
-                                                        <br>
-                                                        <br>
-                                                        where count<small><i>context</i></small>(rf) denotes the size of relation context of r in f, which is consist of the candidates that have same relation r with f, and count(l) is the total
-                                                        number of candidates
-                                                        <br>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </tbody>
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>
                                 <div style="margin: 20px 60px">
                                     <p style="font-size: 21px;color: black">
-                                        <button type="button" class="btn" data-toggle="collapse"
-                                                style="padding:0;width: 90px;height:22px;background: rgba(255,0,0,0.5);border-radius: 2px"
-                                                data-target="#g3">
+                                        <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g3">
                                             <b>Subtask 3</b>
                                         </button>
                                     </p>
                                     <div style="margin: 20px 50px;color: black" id="g3" class="collapse">
                                         <table class="table table-hover table-bordered table-condensed"
                                                style="text-indent: 0px">
-                                            <thead>
+                                        <thead>
+                                            <tr><th>Conceptual Graph Construction</th></tr>
+                                        </thead>
+                                        <tbody>
                                             <tr>
-                                                <th class="col-lg-1">NO.</th>
-                                                <th class="col-lg-12">Solving Result</th>
+                                                <td>More descriptions here</td>
                                             </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>
-                                                    <div>
-                                                        <br>
-                                                        – Compatibility, the compatibility between the relation context of the relation r in
-                                                        the candidate triple f and the semantic information of f itself, i.e.
-                                                        <br>
-                                                        <br>
-                                                        <strong style="text-align: center">
-                                                            C<small><i>mp</i></small>(<i>rf,fht</i>) =  RelC<small><i>xt</i></small>(<i>rf,l</i>) · (<i>1 − &isin;+ &isin;</i> · S<i>em</i>(f<small><i>ht</i></small>, <small><i>context<i>(rf)</i></i></small>))
-                                                        </strong>
-                                                        <br>
-                                                        <br>
-                                                        Here, the first term RelCxt(rf , l) denotes the relation context of r in f as computed in Equation 2; the second term denotes the ratio of the number of candidates
-                                                        that have same subject s or object o with f from RelCxt(rf , l), which is calculated by S<i>em</i>(<small><i>(rf , f<i>ht</i>)</i></small>= count<small><i>fht</i></small>/count<small><i>context</i></small>(rf).Parameter<i> &isin;</i> is used for smoothing as
-                                                        well as to control the influence of the relation context, and is fixed to 0.5 in our
-                                                        implementation.
-                                                        <br>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </tbody>
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -351,7 +243,7 @@
                     <div class="benefit">
                         <hr>
                         <div id="fact_extr" style="margin-top: -100px;padding-top: 100px;">
-                            <h3 class="text-left" style="font-size: larger">3.1  Candidate Facts Extraction</h3>
+                            <h3 class="subtitle">3.1  Candidate Facts Extraction</h3>
                             <div style="color: black !important;text-align: left !important;
                             display: inline-block !important; text-indent: 0px">
                                 <div class="row">
@@ -493,7 +385,7 @@
                         <hr>
                         <!-- estimate_coher -->
                         <div style="margin-top: -100px;padding-top: 100px;" id="estimate_coher">
-                            <h3 class="text-left" style="font-size: larger">3.2 Topic Coherence Estimation of Candidate Facts</h3>
+                            <h3 class="subtitle">3.2 Topic Coherence Estimation of Candidate Facts</h3>
                             <div style="color: black !important;text-align: left !important;
                             display: inline-block !important;text-indent: 0px !important;">
                                 <div class="row">
@@ -646,7 +538,7 @@
                         </div>
                         <hr>
                         <div style="margin-top: -100px;padding-top: 100px;" id="cg">
-                            <h3 class="text-left" style="font-size: larger">3.3 Conceptual Graph Construction</h3>
+                            <h3 class="subtitle">3.3 Conceptual Graph Construction</h3>
                             <div style="color: black !important;text-align: left !important;
                             display: inline-block !important;text-indent: 0px !important;">
                                 <div class="row">

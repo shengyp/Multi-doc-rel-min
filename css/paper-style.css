@@ -1,0 +1,13 @@
+h3.subtitle {
+	font-size: larger;
+	text-align: left;
+}
+
+button.toggle-btn {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 120px;
+	background: #00ab96;
+	color: white;
+	border-radius: 2px;
+}
