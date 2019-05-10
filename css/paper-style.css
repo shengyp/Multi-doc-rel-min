@@ -3,6 +3,14 @@ h3.subtitle {
 	text-align: left;
 }
 
+h4.subsubtitle {
+	font-size: larger;
+	text-align: left;
+	color: black;
+	margin-top:    8px;
+	margin-bottom: 8px;
+}
+
 button.toggle-btn {
 	padding-top: 10px;
 	padding-bottom: 10px;
