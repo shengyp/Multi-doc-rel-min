@@ -136,9 +136,7 @@
                         <h3 class="subtitle">Problem Formulation</h3>
                         <div style="padding-top: 15px;text-align: left;text-indent: 0em;">
                             <div style="font-size: 21px;color:black; padding-left: 20px !important; padding-right: 20px !important;" class="content">
-                                Our task is aimed to assist users in quickly finding salient connections and facts
-                                from a collection of relevant articles, and in summary, it can be best described as
-                                a combination of three major subtasks:
+                                Our task is aimed to assist users in quickly finding salient connections and facts from a collection of relevant articles. In summary, it can be best described as a combination of three major subtasks:
                             </div>
                             <div style="margin: 20px 60px">
                                 <p style="font-size: 21px;color: black">
@@ -147,15 +145,46 @@
                                         <b>Subtask 1</b>
                                     </button>
                                 &nbsp;
-                                <div style="margin: 20px 50px;color: black" id="g1" class="collapse">
+                                <div style="margin: 20px 50px; color: black" id="g1" class="collapse">
+                                    <h4 class="subsubtitle">Data Preprocessing</h4>
                                     <table class="table table-hover table-bordered table-condensed"
                                            style="text-indent: 0px">
                                     <thead>
-                                        <tr><th>Candidate Facts Extraction</th></tr>
+                                        <tr>
+                                            <th width="5%">NO.</th>
+                                            <th width="95%">Tasks</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>More descriptions here</td>
+                                            <td>1</td>
+                                            <td>
+                                                <b>Document Ranking</b>
+                                                <ol>
+                                                    <li>Given a document topic $T$, select the words appearing in its relevant document collection $D = \{d_1, d_2, ..., d_M\}$ with sufficiently high frequency as topic words.</li> 
+                                                    <li>Compute TF-IDF weights for each word.</li>
+                                                    <li>Rank top-$k$ documents in $D$ by TF-IDF weights, recorded as $D' = \{d_1, d_2, ..., d_k\}$.</li>
+                                                </ol>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <b>Coreference Resolution</b>
+                                                <ul>
+                                                    <li>Resolve pronouns for each document $d_i \in D'$ using Stanford CoreNLP [cite]</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                <b>Sentence Ranking</b>
+                                                <ul>
+                                                    <li>Compute the TextRank importance scores for all sentences in $d_i$</li>
+                                                    <li>Consider only sentences with high score, denote by $S = {s_1, s_2, ..., s_K}$</li>
+                                                </ul>
+                                            </td>
                                         </tr>
                                     </tbody>
                                     </table>
