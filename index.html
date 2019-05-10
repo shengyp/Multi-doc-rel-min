@@ -136,7 +136,7 @@
                         <h3 class="subtitle">Problem Formulation</h3>
                         <div style="padding-top: 15px;text-align: left;text-indent: 0em;">
                             <div style="font-size: 21px;color:black; padding-left: 20px !important; padding-right: 20px !important;" class="content">
-                                Our task is aimed to assist users in quickly finding salient connections and facts from a collection of relevant articles. In summary, it can be best described as a combination of three major subtasks:
+                                Our task is aimed to assist users in quickly finding salient connections and facts from a collection of relevant articles. In summary, it can be best described as a combination of the following subtasks:
                             </div>
                             <div style="margin: 20px 60px">
                                 <p style="font-size: 21px;color: black">
@@ -162,7 +162,7 @@
                                                 <b>Document Ranking</b>
                                                 <ol>
                                                     <li>Given a document topic $T$, select the words appearing in its relevant document collection $D = \{d_1, d_2, ..., d_M\}$ with sufficiently high frequency as topic words.</li> 
-                                                    <li>Compute TF-IDF weights for each word.</li>
+                                                    <li>Compute <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">TF-IDF weights</a> for each word.</li>
                                                     <li>Rank top-$k$ documents in $D$ by TF-IDF weights, recorded as $D' = \{d_1, d_2, ..., d_k\}$.</li>
                                                 </ol>
                                             </td>
@@ -181,8 +181,8 @@
                                             <td>
                                                 <b>Sentence Ranking</b>
                                                 <ul>
-                                                    <li>Compute the TextRank importance scores for all sentences in $d_i$</li>
-                                                    <li>Consider only sentences with high score, denote by $S = {s_1, s_2, ..., s_K}$</li>
+                                                    <li>Compute the <a href="https://github.com/letiantian/TextRank4ZH">TextRank</a> importance scores for all sentences in $d_i$</li>
+                                                    <li>Consider only sentences with high score, denote by $S = \{s_1, s_2, ..., s_K\}$</li>
                                                 </ul>
                                             </td>
                                         </tr>
@@ -198,10 +198,11 @@
                                     </button>
                                 </p>
                                 <div style="margin: 20px 50px;color: black" id="g2" class="collapse">
+                                    <h4 class="subsubtitle">Candidate Facts Extraction</h4>
                                     <table class="table table-hover table-bordered table-condensed"
                                            style="text-indent: 0px">
                                     <thead>
-                                        <tr><th>Topic Coherence Estimation of Candidate Facts</th></tr>
+                                        <tr><th>Tasks</th></tr>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -218,14 +219,23 @@
                                     </button>
                                 </p>
                                 <div style="margin: 20px 50px;color: black" id="g3" class="collapse">
+                                    <h4 class="subsubtitle">Topic Coherence Estimation of Candidate Facts</h4>
                                     <table class="table table-hover table-bordered table-condensed"
                                            style="text-indent: 0px">
                                     <thead>
-                                        <tr><th>Conceptual Graph Construction</th></tr>
+                                        <tr><th></th><th>Two-Stage Candidate Triple Filtering (TCTF)</th></tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>More descriptions here</td>
+                                            <td></td>
+                                            <td>
+                                                <b>Stage 1</b>
+                                                <ol>
+                                                    <li>Randomly select a small fraction of triples $F_s \subset F_c$ under the document topic</li>
+                                                    <li>Divide $F_s$ into training set $F_{str}$, validation set $F_{sv}$ and test set $F_{st}$ with ratio 8:1:1</li>
+                                                    <li>Train a random forest classifier $M$ over $F_s$, obtain a F1-score $\theta$</li>
+                                                </ol>
+                                            </td>
                                         </tr>
                                     </tbody>
                                     </table>
