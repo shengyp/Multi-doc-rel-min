@@ -157,7 +157,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
+                                            <td>1.</td>
                                             <td>
                                                 <b>Document Ranking</b>
                                                 <ol>
@@ -168,7 +168,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>2</td>
+                                            <td>2.</td>
                                             <td>
                                                 <b>Coreference Resolution</b>
                                                 <ul>
@@ -177,7 +177,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
+                                            <td>3.</td>
                                             <td>
                                                 <b>Sentence Ranking</b>
                                                 <ul>
@@ -229,7 +229,7 @@
                                         <tr>
                                             <td></td>
                                             <td>
-                                                <b>Stage 1</b>
+                                                <b>Stage 1.</b> Train a random forest classifier
                                                 <ol>
                                                     <li>Randomly select a small fraction of triples $F_s \subset F_c$ under the document topic</li>
                                                     <li>Divide $F_s$ into training set $F_{str}$, validation set $F_{sv}$ and test set $F_{st}$ with ratio 8:1:1</li>
@@ -237,10 +237,60 @@
                                                 </ol>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <b>Stage 2.</b> Extend Coherent Triple Set
+                                                <ol>
+                                                    <li>Use the random forest $M$ to label each unlabelled triple $f \in F_c$; add $f$ into $F^*_l$ if it has high confidence</li>
+                                                    <li>Retrain model $M$ on $F^*_l$, obtain a new F1-score $\theta$</li>
+                                                    <li>Repeat until $\theta$ converges</li>
+                                                </ol>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                     </table>
                                 </div>
                             </div>
+
+                            <div style="margin: 20px 60px">
+                                <p style="font-size: 21px;color: black">
+                                    <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g4">
+                                        <b>Subtask 4</b>
+                                    </button>
+                                </p>
+                                <div style="margin: 20px 50px;color: black" id="g4" class="collapse">
+                                    <h4 class="subsubtitle">Conceptual Graph Generation</h4>
+                                    <table class="table table-hover table-bordered table-condensed"
+                                           style="text-indent: 0px">
+                                    <thead>
+                                        <tr>
+                                            <th width="6%">No</th>
+                                            <th width="94%">Tasks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Merge equivalent concepts and add relations</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>Computate node importance</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>Generate a conceptual graph</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Visualize the conceptual graph</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
                         </div>
                         <div style="font-size: 21px;color:black; padding-left: 20px !important; padding-right: 20px !important;" class="content">
                                 The framework of our approach can be shown in Figure 1. It also comprise three major phases in order to address the problems associated with the subtasks as we have discussed earlier.
