@@ -19,6 +19,8 @@ button.toggle-btn {
 	background: #00ab96;
 	color: white;
 	border-radius: 2px;
+	font-size: small;
+	font-family: Arial, sans-serif;
 }
 
 div.benefit {

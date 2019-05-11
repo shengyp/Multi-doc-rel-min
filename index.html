@@ -461,152 +461,16 @@
                             <h3 class="subtitle">3.2 Topic Coherence Estimation of Candidate Facts</h3>
                             <div style="color: black !important;text-align: left !important;
                             display: inline-block !important;text-indent: 0px !important;">
-                                <div class="row">
-                         <!--            <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
-                                         class="content">
-                                         
-                                    </div> -->
-                                    <div style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
-                                        The main key to answering the geometric problem lies in its rigorous logic.
-                                    </div>
+                                <div class="content">
+                                    Not all the triple $f_i \in F_c$ is indicative of what is relevant for the specified topic. Such triples need to be filtered out from the candidate set $F_c$ for constructing a knowledge graph. We describe the implementation of the <b>Two-Stage Candidate Triple Filtering (TCTF)</b> approach in this section.
                                 </div>
-                                <p style="color: #0f0f0f;font-size: 21px; margin:20px 50px">
-                                    After being processed by NLP, we can get following relations.
-                                </p>
-                                <div>
-                                    <div style="margin: 20px 50px">
-                                        <p style="font-size: 21px;color: black">
-                                            <button type="button" class="btn" data-toggle="collapse"
-                                                    style="padding:0;width: 180px;height:30px;background: rgba(0,255,0,0.5);border-radius: 2px"
-                                                    data-target="#table3">
-                                                <b>Question Relations:</b>
-                                            </button>
-                                        </p>
-                                    </div>
-                                    <div id="table3" class="collapse" style="margin: 20px 50px">
-                                        <table class="table table-hover table-bordered table-condensed "
-                                               style="text-indent: 0px; color: black">
-                                            <thead>
-                                            <tr>
-                                                <th class="col-lg-1">NO.</th>
-                                                <th class="col-lg-9">Relations</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>CommonQustionRelations:</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    DiameterRelation{diameter=AC, circle=Circle[O]{center=O,
-                                                    analytic=y_O=f(x_O), length=null}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>DiameterRelation{diameter=BD, circle=Circle[Q]{center=Q,
-                                                    analytic=y_Q=f(x_Q), length=null}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>PointRelation:A, PointRelation:B, PointRelation:C</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>LineCrossCircleRelation{line=CP, circle= O, crossPoints=[C, M],
-                                                    crossPointNum=2}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>LineCrossCircleRelation{line=BP, circle= Q, crossPoints=[B, N],
-                                                    crossPointNum=2}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>SubstemRelation:
-                                                </td>
-                                            </tr>
+                                <br/>
+                                <div class="content">
+                                    <pre>
 
-                                            <tr>
-                                                <td>8</td>
-                                                <td>None
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>Conclusion:
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>ProveConclusionRelation:[MultiLineCrossRelation{lines=[DN,AM,XY]}]
-                                                </td>
-                                            </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
+Pseudocode
+                                    </pre>
                                 </div>
-                                <div class="row">
-                                    <p style="color: #0f0f0f;font-size: 21px; margin:0px 65px">
-                                        And,here is the solving result which contains a very detailed process of solving
-                                        problems.
-                                    </p>
-                                </div>
-                                <div>
-                                    <div style="margin: 20px 50px">
-                                        <p style="font-size: 21px;color: black">
-                                            <button type="button" class="btn" data-toggle="collapse"
-                                                    style="padding:0;width: 180px;height:30px;background: rgba(0,255,0,0.5);border-radius: 2px"
-                                                    data-target="#table4">
-                                                <b>Question Relations:</b>
-                                            </button>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <div style="margin: 20px 50px" id="table4" class="collapse">
-                                    <table class="table table-hover table-bordered table-condensed"
-                                           style="text-indent: 0px">
-                                        <thead>
-                                        <tr>
-                                            <th class="col-lg-1">NO.</th>
-                                            <th class="col-lg-12">Solving Result</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <div>
-                                                    (1)∵ draw cross point $ E $ of $ AB $ and $ XY $ , draw cross point
-                                                    $ F
-                                                    $ of $ XY $ and $ DN $ (Auxiliary points for automatic addition)
-                                                    <br>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-
-                                <div class="row">
-                                    <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
-                                         class="content">
-                                        After 44 steps, the automatic solving system solved this Olympic math problem.
-                                        We can see that the
-                                        certification process given by the system is very rigorous and meticulous. This
-                                        shows that the system is very capable of solving problems for geometric
-                                        problems.
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                         <hr>
