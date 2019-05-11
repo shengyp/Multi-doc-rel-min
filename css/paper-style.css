@@ -3,12 +3,13 @@ h3.subtitle {
 	text-align: left;
 }
 
-h4.subsubtitle {
-	font-size: larger;
+span.subtask-title {
+	font-size: 21px;
 	text-align: left;
 	color: black;
-	margin-top:    8px;
-	margin-bottom: 8px;
+	margin-left: 15px;
+	margin-top:  3px;
+	font-family: Arial, sans-serif;
 }
 
 button.toggle-btn {
