@@ -453,9 +453,9 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <!-- estimate_coher -->
-                        <div style="margin-top: -100px;padding-top: 100px;" id="estimate_coher">
+                        <hr />
+                        <!-- 3.2 Topic Coherence Estimation of Candidate Facts -->
+                        <div style="margin-top: -100px;padding-top: 100px;" id="tctf">
                             <h3 class="subtitle">3.2 Topic Coherence Estimation of Candidate Facts</h3>
                             <div style="color: black !important;text-align: left !important;
                             display: inline-block !important;text-indent: 0px !important;">
@@ -464,184 +464,86 @@
                                     We propose a <b>Two-Stage Candidate Triple Filtering (TCTF)</b> algorithm to solve this problem. The pseudo-code of TCTF is provided below. 
                                 </div>
                                 <br/>
-                                <div class="content">
+                                <div style="margin: 10px 60px">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g5">
                                         <b>TCTF Algorithm</b>
                                     </button>
                                 </div>
                                 <div id="g5" class="content collapse">
-                                    <img src="css/algorithm.png" style="width: 80%; margin-left: 5%; margin-top: 20px;"/>
+                                    <img src="css/algorithm.png" style="width: 80%; margin-left: 5%; margin-top: 20px;" />
+                                </div>
+                                <br/>
+
+                                <div class="content">
+                                    To measure the topic coherence for each $f_c \in F_s$, we define 3 groups of features namely <span class="italic">topic features</span>, <span class="italic">text features</span> and <span class="italic">source features</span>. The following table shows the details about each of these features.
+                                </div>
+                                <div style="margin: 10px 60px">
+                                    <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#feature_table">
+                                        <b>Feature Table</b>
+                                    </button>
+                                </div>
+                                <div id="feature_table" class="content collapse">
+                                    <img src="css/features.png" style="width: 80%; margin-left: 5%; margin-top: 20px;" />
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div style="margin-top: -100px;padding-top: 100px;" id="cg">
+                        <hr />
+
+                        <!-- 3.3 Conceptual Graph Construction -->
+                        <div style="margin-top: -100px;padding-top: 100px;" id="graph_construction">
                             <h3 class="subtitle">3.3 Conceptual Graph Construction</h3>
-                            <div style="color: black !important;text-align: left !important;
-                            display: inline-block !important;text-indent: 0px !important;">
-                                <div class="row">
-                      <!--               <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
-                                         class="content">
-                                        The main
-                                    </div> -->
-                                    <div style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
-                                        Conceptual graph construction.
-                                    </div>
+                            <div class="content">
+                                <div class="content">
                                 </div>
-
-                                <div class="questionboder-geometry">
-                                    <div style="font-size: 20px; margin: 20px 20px" class="row">
-                                        <div class="col-lg-6" style="text-align: justify">
-                                            Suppose point $ A,B,C $ and $ D $
-                                            are four different points arranged in turn on a straight line,
-                                            the line intersects with the circle $ O $ having a diameter $ AC $ at point
-                                            $ X $ ,
-                                            and intersects with the circle $ Q $ having a diameter $ BD $ at point $ Y
-                                            $.
-                                            Line $ XY $ intersects $ BC $ with point $ Z $,if point $ P $ is a point
-                                            different from $ Z $ on line $ XY $
-                                            ,the line $ CP $ intersects with the circle $ O $ having a diameter $ AC $
-                                            at point $ C $
-                                            and $ M $ ,the line $ BP $ intersects with the circle $ Q $ having a
-                                            diameter $ BD $
-                                            at point $ B $ and $ N $.Try to prove : $ AM, XY $ and $ DN $ three lines
-                                            intersect at one point.
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <img src="css/pic1.jpg" style="margin-top: 50px">
-                                        </div>
-                                    </div>
+                                <br/>
+                                <!-- subtask 1-->
+                                <div style="margin: 10px 60px">
+                                    <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g6">
+                                        <b>Show Details</b>
+                                    </button>
+                                    <span class="subtask-title">Merge equivalent concepts and add relations</span>
+                                </div>
+                                <div id="g6" class="content collapse">
 
                                 </div>
 
-                                <p style="color: #0f0f0f;font-size: 21px; margin:20px 50px">
-                                    After being processed by NLP, we can get following relations.
-                                </p>
-                                <div>
-                                    <div style="margin: 20px 50px">
-                                        <p style="font-size: 21px;color: black">
-                                            <button type="button" class="btn" data-toggle="collapse"
-                                                    style="padding:0;width: 180px;height:30px;background: rgba(255,0,0,0.5);border-radius: 2px"
-                                                    data-target="#table3">
-                                                <b>Question Relations:</b>
-                                            </button>
-                                        </p>
-                                    </div>
-                                    <div id="table3" class="collapse" style="margin: 20px 50px">
-                                        <table class="table table-hover table-bordered table-condensed "
-                                               style="text-indent: 0px; color: black">
-                                            <thead>
-                                            <tr>
-                                                <th class="col-lg-1">NO.</th>
-                                                <th class="col-lg-9">Relations</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>CommonQustionRelations:</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    DiameterRelation{diameter=AC, circle=Circle[O]{center=O,
-                                                    analytic=y_O=f(x_O), length=null}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>DiameterRelation{diameter=BD, circle=Circle[Q]{center=Q,
-                                                    analytic=y_Q=f(x_Q), length=null}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>PointRelation:A, PointRelation:B, PointRelation:C</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>LineCrossCircleRelation{line=CP, circle= O, crossPoints=[C, M],
-                                                    crossPointNum=2}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>None
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <!-- subtask 2-->
+                                <div style="margin: 10px 60px">
+                                    <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g7">
+                                        <b>Show Details</b>
+                                    </button>
+                                    <span class="subtask-title">Computate node importance</span>
                                 </div>
-                                <div class="row">
-                                    <p style="color: #0f0f0f;font-size: 21px; margin:0px 65px">
-                                        And,here is the solving result which contains a very detailed process of solving
-                                        problems.
-                                    </p>
-                                </div>
-                                <div>
-                                    <div style="margin: 20px 50px">
-                                        <p style="font-size: 21px;color: black">
-                                            <button type="button" class="btn" data-toggle="collapse"
-                                                    style="padding:0;width: 180px;height:30px;background: rgba(255,0,0,0.5);border-radius: 2px"
-                                                    data-target="#table4">
-                                                <b>Question Relations:</b>
-                                            </button>
-                                        </p>
-                                    </div>
+                                <div id="g7" class="content collapse">
 
-                                </div>
-                                <div style="margin: 20px 50px" id="table4" class="collapse">
-                                    <table class="table table-hover table-bordered table-condensed"
-                                           style="text-indent: 0px">
-                                        <thead>
-                                        <tr>
-                                            <th class="col-lg-1">NO.</th>
-                                            <th class="col-lg-12">Solving Result</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <div>
-                                                    (1)∵ draw cross point $ E $ of $ AB $ and $ XY $ , draw cross point
-                                                    $ F
-                                                    $ of $ XY $ and $ DN $ (Auxiliary points for automatic addition)
-                                                    <br>
-                                                    (2)∵ $ Y, Z, P, X, E, F $ is collinear<br>
-                                                    (3)∵ $ F, N, D $ is collinear<br>
-                                                    (4)∵ $ A, M, E $ is collinear<br>
-                                                    (5)∵ $ BD $ is the diameter of the circle $ Q $ <br>
-                                                    (6)∵ point $ N $ <br>
-                                                    (7)∴ by(4,5,6): $ Rt \angle BND $ <br>
-                                                    (8)∴ by(7): $ BN \perp DF $ , pedal point is $ N $ <br>
-                                                    (9)∴ by(8): $ Rt \angle BNF $ <br>
-                                                    (10)∵ by(6): $ \vartriangle FNP $ <br>
-                                                    (11)∴ by(9,10): $ Rt \angle FNP $ (vertex is point $ N $)<br>
-                                                    <br>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
 
 
-                                <div class="row">
-                                    <div style="font-size: 21px; padding-left: 65px !important; padding-right: 65px !important;"
-                                         class="content">
-                                        After 44 steps, the automatic solving system solved this Olympic math problem.
-                                        We can see that the
-                                        certification process given by the system is very rigorous and meticulous. This
-                                        shows that the system is very capable of solving problems for geometric
-                                        problems.
-                                    </div>
+                                <!-- subtask 3-->
+                                <div style="margin: 10px 60px">
+                                    <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g8">
+                                        <b>Show Details</b>
+                                    </button>
+                                    <span class="subtask-title">Generate a conceptual graph</span>
+                                </div>
+                                <div id="g8" class="content collapse">
+
                                 </div>
 
+
+                                <!-- subtask 4-->
+                                <div style="margin: 10px 60px">
+                                    <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g9">
+                                        <b>Show Details</b>
+                                    </button>
+                                    <span class="subtask-title">Visualize the conceptual graph</span>
+                                </div>
+                                <div id="g9" class="content collapse">
+
+                                </div>
                             </div>
                         </div>
-                        <hr>
+                        <hr />
                     </div>
                 </div>
             </div>
