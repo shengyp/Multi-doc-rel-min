@@ -17,16 +17,14 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/app.style.css">
+    <link rel="stylesheet" href="css/pseudocode.min.css">
     <link rel="stylesheet" href="css/paper-style.css">
     <script src="css/jquery-2.1.1.min.js"></script>
     <script src="css/bootstrap.min.js"></script>
     <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
-  });
-
-
-
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+      });
     </script>
     <script type="text/javascript" async
             src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -462,14 +460,17 @@
                             <div style="color: black !important;text-align: left !important;
                             display: inline-block !important;text-indent: 0px !important;">
                                 <div class="content">
-                                    Not all the triple $f_i \in F_c$ is indicative of what is relevant for the specified topic. Such triples need to be filtered out from the candidate set $F_c$ for constructing a knowledge graph. We describe the implementation of the <b>Two-Stage Candidate Triple Filtering (TCTF)</b> approach in this section.
+                                    Not all the triple $f_i \in F_c$ is indicative of what is relevant for the specified topic. Such triples need to be filtered out from the candidate set $F_c$ for constructing a knowledge graph. 
+                                    We propose a <b>Two-Stage Candidate Triple Filtering (TCTF)</b> algorithm to solve this problem. The pseudo-code of TCTF is provided below. 
                                 </div>
                                 <br/>
                                 <div class="content">
-                                    <pre>
-
-Pseudocode
-                                    </pre>
+                                    <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g5">
+                                        <b>TCTF Algorithm</b>
+                                    </button>
+                                </div>
+                                <div id="g5" class="content collapse">
+                                    <img src="css/algorithm.png" style="width: 80%; margin-left: 5%; margin-top: 20px;"/>
                                 </div>
                             </div>
                         </div>
