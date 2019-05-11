@@ -493,26 +493,58 @@
                         <div style="margin-top: -100px;padding-top: 100px;" id="graph_construction">
                             <h3 class="subtitle">3.3 Conceptual Graph Construction</h3>
                             <div class="content">
-                                <div class="content">
-                                </div>
-                                <br/>
                                 <!-- subtask 1-->
-                                <div style="margin: 10px 60px">
+                                <div style="margin: 10px 60px 20px -20px;">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g6">
                                         <b>Show Details</b>
                                     </button>
-                                    <span class="subtask-title">Merge equivalent concepts and add relations</span>
+                                    <span class="subtask-title">1. Merge equivalent concepts and add relations</span>
                                 </div>
                                 <div id="g6" class="content collapse">
+                                    <table class="table table-hover table-bordered table-condensed"
+                                           style="text-indent: 0px; color: black;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2">
+                                                Extracted entities and concepts need to be merged if they are semantically equivalent. <br/>For example, <span class="italic">US</span> and <span class="italic">America</span> refers to the same entity in most cases. We merge concepts in 2 steps.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <b>1. Use of third party Ontological KB</b>
+                                                <ul>
+                                                    <li>Use Stanford CoreNLP entity linker to identify entity or concept mentions.</li>
+                                                    <li>Link the identified mentions to Ontological KBs such as Wikipedia or Freebase.</li>
+                                                    <li>If two entities link to the same Wikipedia page, we assume them to be equivalent.</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <b>2. Human annotation</b>
+                                                <ol>
+                                                    <li>If no sufficient context information presents, expert annotators with NLP background are asked to do the job.</li>
+                                                    <li>Align, Disambiguate and Walk tool is used for semantically similarity computation between concepts.</li>
+                                                </ol>
+                                            </td>
+                                        </tr>
+
+                                        
+                                    </tbody>
+                                    </table>
+
 
                                 </div>
 
                                 <!-- subtask 2-->
-                                <div style="margin: 10px 60px">
+                                <div style="margin: 10px 60px 20px -20px;">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g7">
                                         <b>Show Details</b>
                                     </button>
-                                    <span class="subtask-title">Computate node importance</span>
+                                    <span class="subtask-title">2. Computate node importance</span>
                                 </div>
                                 <div id="g7" class="content collapse">
 
@@ -520,11 +552,11 @@
 
 
                                 <!-- subtask 3-->
-                                <div style="margin: 10px 60px">
+                                <div style="margin: 10px 60px 20px -20px;">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g8">
                                         <b>Show Details</b>
                                     </button>
-                                    <span class="subtask-title">Generate a conceptual graph</span>
+                                    <span class="subtask-title">3. Generate a conceptual graph</span>
                                 </div>
                                 <div id="g8" class="content collapse">
 
@@ -532,11 +564,11 @@
 
 
                                 <!-- subtask 4-->
-                                <div style="margin: 10px 60px">
+                                <div style="margin: 10px 60px 20px -20px;">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g9">
                                         <b>Show Details</b>
                                     </button>
-                                    <span class="subtask-title">Visualize the conceptual graph</span>
+                                    <span class="subtask-title">4. Visualize the conceptual graph</span>
                                 </div>
                                 <div id="g9" class="content collapse">
 
