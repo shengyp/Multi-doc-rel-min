@@ -31,3 +31,7 @@ div.benefit {
 span.italic {
 	font-style: italic;
 }
+
+td.ac {
+	text-align: center;
+}
