@@ -523,8 +523,8 @@
                                             <td>
                                                 <b>1. Use of third party Ontological KB</b>
                                                 <ul>
-                                                    <li>Use Stanford CoreNLP entity linker to identify entity or concept mentions.</li>
-                                                    <li>Link the identified mentions to Ontological KBs such as Wikipedia or Freebase.</li>
+                                                    <li>Use <a href="https://stanfordnlp.github.io/CoreNLP/">Stanford CoreNLP</a> entity linker to identify entity or concept mentions.</li>
+                                                    <li>Link the identified mentions to Ontological KBs such as Wikipedia or <a href="https://developers.google.com/freebase/">Freebase</a>.</li>
                                                     <li>If two entities link to the same Wikipedia page, we assume them to be equivalent.</li>
                                                 </ul>
                                             </td>
@@ -544,7 +544,7 @@
                                     </table>
                                 </div>
 
-                                <!-- subtask 2-->
+                                <!-- subtask 3-->
                                 <div style="margin: 10px 60px 20px -20px;">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g7">
                                         <b>Show Details</b>
@@ -565,14 +565,15 @@
                                                 I_i = (1-d) \sum_{j \in \mathcal{N}(i)} \frac{w_{ji}}{\sum_{k \in \mathcal{N}(j) w_{jk}}} I(j) + d \cdot p_i
                                             $$
                                             <ul>
-                                                <li>$p_{R} = \{p_1, p_2, ..., p_{|\mathcal{V}|}\}$</li>
+                                                <li>$\textbf{p}_{R} = \{p_1, p_2, ..., p_{|\mathcal{V}|}\}$ is a preference vector</li>
+                                                <li>$I$ is the $1 \times |\mathcal{V}|$ importance vectors to be computed</li>
+                                                <li>$\mathcal{N}(i)$ denotes the set of node $v_i$'s neighbors</li>
                                             </ul>
                                         </td>
                                         </tr>
                                     </tbody>
                                     </table>
                                 </div>
-
 
                                 <!-- subtask 3-->
                                 <div style="margin: 10px 60px 20px -20px;">
@@ -582,20 +583,25 @@
                                     <span class="subtask-title">3. Generate a conceptual graph</span>
                                 </div>
                                 <div id="g8" class="content collapse">
+                                    <table class="table table-hover table-bordered table-condensed"
+                                           style="text-indent: 0px; color: black;">
+                                    <tbody>
+                                        <tr>
+                                        <td style="padding: 10px;">
+                                            <ul>
+                                                <li>Set a constraint of 25 concepts at maximum to the concept graph</li>
 
+                                                <li>Iteratively remove the weakest concepts with relatively lower importance score</li>
+
+                                                <li>Terminate when only one connected component of 25 entities and concepts remains. The result is used as the final conceptual graph $G$</li>
+                                            </ul>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
                                 </div>
 
 
-                                <!-- subtask 4-->
-                                <div style="margin: 10px 60px 20px -20px;">
-                                    <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g9">
-                                        <b>Show Details</b>
-                                    </button>
-                                    <span class="subtask-title">4. Visualize the conceptual graph</span>
-                                </div>
-                                <div id="g9" class="content collapse">
-
-                                </div>
                             </div>
                         </div>
                         <hr />
