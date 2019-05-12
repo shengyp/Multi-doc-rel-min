@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/paper-style.css">
     <script src="css/jquery-2.1.1.min.js"></script>
     <script src="css/bootstrap.min.js"></script>
+
+    <!--
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
@@ -29,6 +31,13 @@
     <script type="text/javascript" async
             src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
+    -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+
+
 </head>
 
 <body id="body" data-spy="scroll" data-target=".one-page-header" class="demo-lightbox-gallery  pace-done" style="font-family: 'Times New Roman', serif;">
@@ -531,12 +540,8 @@
                                                 </ol>
                                             </td>
                                         </tr>
-
-                                        
                                     </tbody>
                                     </table>
-
-
                                 </div>
 
                                 <!-- subtask 2-->
@@ -547,7 +552,25 @@
                                     <span class="subtask-title">2. Compute node importance</span>
                                 </div>
                                 <div id="g7" class="content collapse">
-
+                                    <table class="table table-hover table-bordered table-condensed"
+                                           style="text-indent: 0px; color: black;">
+                                    <tbody>
+                                        <tr>
+                                        <td style="padding: 10px;">
+                                            <ul>
+                                                <li>Assign $w_{ij} = 1$ for directed edge $v_i \rightarrow v_j$, and $w_{ji} = 0.5$ for its reverse edge $v_j \rightarrow v_i$</li>
+                                                <li>Compute the importance of each node using our extended TextRank score</li>
+                                            </ul>
+                                            $$
+                                                I_i = (1-d) \sum_{j \in \mathcal{N}(i)} \frac{w_{ji}}{\sum_{k \in \mathcal{N}(j) w_{jk}}} I(j) + d \cdot p_i
+                                            $$
+                                            <ul>
+                                                <li>$p_{R} = \{p_1, p_2, ..., p_{|\mathcal{V}|}\}$</li>
+                                            </ul>
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
                                 </div>
 
 
@@ -714,5 +737,18 @@
         </div>
     </div>
 </section>
+<script>
+  renderMathInElement(
+      document.body,
+      {
+          delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "\\[", right: "\\]", display: true},
+              {left: "$", right: "$", display: false},
+              {left: "\\(", right: "\\)", display: false}
+          ]
+      }
+  );
+</script>
 </body>
 </html>
