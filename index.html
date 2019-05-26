@@ -53,10 +53,10 @@
                 <ul class="nav navbar-nav">
                     <li class="page-scroll"><a href="#abstract" style="font-size: 14px">ABSTRACT</a>
                     </li>
-                    <li class="page-scroll"><a href="#solutions" style="font-size: 14px">OUR APPROACH</a>
-                    </li>
+ <!--                    <li class="page-scroll"><a href="#solutions" style="font-size: 14px">OUR APPROACH</a>
+                    </li> -->
 
-                    <li class="page-scroll">
+<!--                     <li class="page-scroll">
                         <a data-toggle="dropdown" href="#" style="font-size: 14px;margin-bottom: 5px">
                             APPROACH IMPLEMENTATION<span class="caret"></span>
                         </a>
@@ -65,9 +65,9 @@
                             <li><a href="#estimate_coher" style="font-size: 14px">Topic Coherence Estimation of Candidate Facts</a></li>
                             <li><a href="#cg" style="font-size: 14px">Conceptual Graph Construction</a></li>
                         </ul>
-                    </li>
-                    <li class="page-scroll"><a href="#exp" style="font-size: 14px">EXPERIMENTAL RESULTS</a>
-                    </li>
+                    </li> -->
+<!--                     <li class="page-scroll"><a href="#exp" style="font-size: 14px">EXPERIMENTAL RESULTS</a>
+                    </li> -->
                     <li class="page-scroll"><a href="#downloads" style="font-size: 14px">VIDEO</a>
                     </li>
 
@@ -125,12 +125,12 @@
                 <p class="block-name"><span>1.</span> Abstract</p>
             </div>
             <div class="row" style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
-                In today's interconnected world, there is an endless 24/7 stream of new articles appearing online. Faced with these overwhelming amounts of data, it is often helpful to consider only the key entities and concepts and their relationships. This is challenging, as relevant connections may be spread across a number of disparate articles and sources. In this paper, we propose a unified framework to aid users in quickly discerning salient connections and facts from a set of related documents and presents the resulting information in a graph-based visualization. Specifically, given a set of relevant documents as input, first, we extract candidate facts from the above sources by leveraging Open Information Extraction (Open IE) approaches. Then, we design a Two-Stage Candidate Triple Filtering (TCTF) approach to maintain only coherent facts associated with the specified document topic from the candidates and connect them in the form of an initial graph. We also present a heuristic to obtain a final conceptual graph based on the graph in which the salient entities and concepts can be included. Our graph visualization then allows users to explore these connections. The experiments on two real-world data sets illustrate that our extraction approach achieves 3.2% higher on the average of F-score over several OpenIE baselines. We also further present an empirical evaluation of the quality of the final generated conceptual graph towards different topics on its coverage rate of topic entities and concepts, confidence score, and the compatibility of involved facts. Experimental results show the effectiveness of our proposed approach.
+                When overwhelming amounts of data in the 24/7 stream of new articles including news reports, business transactions and digital media present, considering only the key entities and concepts and their relationship saves time for acquiring key information. However, the fact that relevant connections may be distributed over a number of sources perplexes the challenge of relation exploration. In this paper, we propose a system to aid users in quickly discerning salient connections and facts from a set of related documents and presents the resulting information in a graph-based visualization. Specifically, given a set of relevant documents as input, we firstly propose a novel importance-based Open Information Extraction (Open IE) approach by exploiting the global structure of a dependency tree to extract candidate facts from above sources. Different from previous OpenIE approaches, our method is capable to cover more diverse relation expressions and measure the relative importance of candidate facts within a sentence. Then we design a Two-Stage Candidate Triple Filtering (TCTF) approach based on a self-training framework to maintain only coherent facts associated with the specified document topics from the candidates and connect them in the form of an initial graph. We further construct this graph by a heuristic strategy that iteratively removes the weakest entities and concepts with relatively lower importance scores computed by the extended TextRank algorithm, so that it ensures the final conceptual graph only consist of facts likely to represent meaningful and salient relationships where users may explore graphically. The extensive experiments on two real-world news datasets illustrate that our extraction approach achieves 3.2% higher on the average of F-score over state-of-the-art OpenIE methods. We also conduct an empirical study to investigate the quality of the final generated conceptual graph towards different document topics on its coverage rate of topic entities and concepts, confidence score, the compatibility of involved facts, and graph connectedness. Experimental results show the effectiveness of our proposed approach. More details of this system and code can be found in https://shengyp.github.io/Multi-doc-rel-min/.
             </div>
         </div>
 </section>
 
-<section id="solutions">
+<!-- <section id="solutions">
     <div class="container">
         <div class="g-pt-70 g-pb-30">
             <div class="g-heading-v10 g-mb-30 ">
@@ -310,9 +310,9 @@
                 </div>
             </div>
         </div>
-</section>
+</section> -->
 
-<section id="case1">
+<!-- <section id="case1">
     <div class="container">
         <div class="g-pt-70">
             <div class="g-heading-v10 g-mb-30">
@@ -463,7 +463,7 @@
                         </div>
                         <hr />
                         <!-- 3.2 Topic Coherence Estimation of Candidate Facts -->
-                        <div style="margin-top: -100px;padding-top: 100px;" id="tctf">
+<!--                         <div style="margin-top: -100px;padding-top: 100px;" id="tctf">
                             <h3 class="subtitle">3.2 Topic Coherence Estimation of Candidate Facts</h3>
                             <div style="color: black !important;text-align: left !important;
                             display: inline-block !important;text-indent: 0px !important;">
@@ -498,11 +498,11 @@
                         <hr />
 
                         <!-- 3.3 Conceptual Graph Construction -->
-                        <div style="margin-top: -100px;padding-top: 100px;" id="graph_construction">
+<!--                         <div style="margin-top: -100px;padding-top: 100px;" id="graph_construction">
                             <h3 class="subtitle">3.3 Conceptual Graph Construction</h3>
                             <div class="content">
                                 <!-- subtask 1-->
-                                <div style="margin: 10px 60px 20px -20px;">
+ <!--                                <div style="margin: 10px 60px 20px -20px;">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g6">
                                         <b>Show Details</b>
                                     </button>
@@ -528,8 +528,8 @@
                                                 </ul>
                                             </td>
                                         </tr>
-
-                                        <tr>
+ -->
+   <!--                                      <tr>
                                             <td></td>
                                             <td>
                                                 <b>2. Human annotation</b>
@@ -541,10 +541,10 @@
                                         </tr>
                                     </tbody>
                                     </table>
-                                </div>
+                                </div> -->
 
                                 <!-- subtask 3-->
-                                <div style="margin: 10px 60px 20px -20px;">
+                              <!--   <div style="margin: 10px 60px 20px -20px;">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g7">
                                         <b>Show Details</b>
                                     </button>
@@ -572,10 +572,10 @@
                                         </tr>
                                     </tbody>
                                     </table>
-                                </div>
+                                </div> --> 
 
                                 <!-- subtask 3-->
-                                <div style="margin: 10px 60px 20px -20px;">
+ <!--                                <div style="margin: 10px 60px 20px -20px;">
                                     <button type="button" class="btn toggle-btn" data-toggle="collapse" data-target="#g8">
                                         <b>Show Details</b>
                                     </button>
@@ -599,8 +599,6 @@
                                     </tbody>
                                     </table>
                                 </div>
-
-
                             </div>
                         </div>
                         <hr />
@@ -609,9 +607,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> --> 
 
-<section id="exp">
+<!-- <section id="exp">
     <div class="container">
         <div class="g-pt-70 g-pb-30">
             <div class="g-heading-v10 g-mb-30 ">
@@ -623,7 +621,7 @@
                          style="visibility: visible; animation-duration: 1.5s; animation-name: fadeIn;">
                         <div class="benefit" style="padding-left: 0">
                             <!-- <h3 class="text-left " style="font-size: larger">Human-like Answering System </h3> -->
-                                <div style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
+ <!--                                <div style="color: #0f0f0f;font-size: 18px; margin:10px 60px">
                                         The main key to answering the geometric problem lies in its rigorous logic.
                                 </div>
                         </div>
@@ -632,7 +630,7 @@
                 </div>
             </div>
         </div>
-</section>
+</section> -->
 
 <section id="downloads">
     <div class="container-fluid with-bg-1">
@@ -640,7 +638,7 @@
             <div class="features">
                 <div class="g-pt-70 g-pb-30">
                     <div class="g-heading-v10 g-mb-30 ">
-                        <p class="block-name"><span>4. </span>Video</p>
+                        <p class="block-name"><span>2. </span>Video</p>
                     </div>
                     <div style="margin: 0 auto; text-align: center;">
                         <iframe align="center" width="560" height="315" src="https://www.youtube.com/embed/SaST3sSvhSk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -671,29 +669,49 @@
         <div>
             <div class="subscribe">
                 <div class="g-heading-v10 g-mb-30 ">
-                    <p class="block-name"><span>5. </span>References</p>
+                    <p class="block-name"><span>3. </span>References</p>
                 </div>
                 <div class="row equal-height-columns">
                     <div class="content">
                         <ol style="text-indent: 0px;">
-                            <li class="g-pb-10">Fu, Hongguang, et al. Geometry Knowledge Base Learning from Theorem
-                                Proofs. Knowledge Engineering and Management. Springer Berlin Heidelberg, 2014:21-33.
+                            <!-- 1 -->
+                            <li class="g-pb-10">Manning, C., Surdeanu, M., Bauer, J., Finkel, J., Bethard, S., McClosky, D.: The Stanford CoreNLP natural language processing toolkit. In: ACL, pp. 55-60 (2014).
                             </li>
-                            <li class="g-pb-10">Matsuzaki, Takuya, et al. "Semantic Parsing of Pre-university Math
-                                Problems." Meeting of the Association for Computational Linguistics 2017:2131-2141.
+                            <!-- 2 -->
+                            <li class="g-pb-10">Banko, M., Cafarella, M. J., Soderland, S., Broadhead, M., Etzioni, O.: Open information extraction from the web. In: IJCAI, pp. 2670-2676 (2007).
                             </li>
-                            <li class="g-pb-10">Matuga, Julia M, and J. M. Turos. "The Promise of an All‐In‐One
-                                Assessment System for Student Learning Outcomes: Bowling Green State University's
-                                Excellence in Assessment Designation (EIA)." Assessment Update 30(2018).
+                            <!-- 3 -->
+                            <li class="g-pb-10">Kochtchi, A., Landesberger, T. V., Biemann, C.: Networks of Names: Visual Exploration and SemiAutomatic Tagging of Social Networks from Newspaper Articles. In: Computer Graphics Forum, pp. 211-220 (2014).
                             </li>
-                            <li class="g-pb-10">Sachan, Mrinmaya, K. Dubey, and E. Xing. "From Textbooks to Knowledge: A
-                                Case Study in Harvesting Axiomatic Knowledge from Textbooks to Solve Geometry Problems."
-                                Conference on Empirical Methods in Natural Language Processing 2017:773-784.
+                            <!-- 4 -->
+                            <li class="g-pb-10">Spitkovsky, V. I., Chang, A. X.: A cross-lingual dictionary for english wikipedia concepts. In: LREC, pp. 3168-3175 (2012).
                             </li>
-                            <li class="g-pb-10">Upadhyay, Shyam, et al. "Learning from Explicit and Implicit Supervision
-                                Jointly For Algebra Word Problems." Conference on Empirical Methods in Natural Language
-                                Processing 2016:297-306.
+                            <!-- 5 -->
+                            <li class="g-pb-10">Mausam, M.: Open information extraction systems and downstream applications. In: IJCAI, pp. 4074-4077 (2016).
                             </li>
+                            <!-- 6 -->
+                            <li class="g-pb-10">Schmitz, M., Bart, R., Soderland, S., Etzioni, O.: Open language learning for information extraction. In: EMNLP-CoNLL, pp. 523-534 (2012).
+                            </li>
+                            <!-- 7 -->
+                            <li class="g-pb-10">Del Corro, L., Gemulla, R.: Clausie: clause-based open information extraction. In:WWW, pp. 355-366 (2013).
+                            </li>
+                            <!-- 8 -->
+                            <li class="g-pb-10">Gashteovski, K., Gemulla, R., Del Corro, L.: Minie: minimizing facts in open information extraction. In: EMNLP, pp. 2630-2640 (2017).
+                            </li>
+                            <!-- 9 -->
+                            <li class="g-pb-10">Mihalcea, R., Tarau, P.: Textrank: Bringing order into text. In: EMNLP (2004).
+                            </li>
+                            <!-- 10 -->
+                            <li class="g-pb-10">Mann, G.: Multi-document relationship fusion via constraints on probabilistic databases. In: Human Language Technologies 2007: NAACL, pp. 332-339 (2007).
+                            </li>
+                            <!-- 11 -->
+                            <li class="g-pb-10">Ji, H., Favre, B., Lin,W. P., Gillick, D., Hakkani-Tur, D., Grishman, R.: Open-domain Multi-Document summarization via information extraction: Challenges and prospects. In: Multisource, multilingual information extraction and summarization, pp. 177-201 (2013).
+                            </li>
+                            <!-- 12 -->
+                            <li class="g-pb-10">Fuchs, C. A., Peres, A.: Quantum-state disturbance versus information. In: Uncertainty relations for quantum information. Physical Review A, 53(4), 20-38 (1996).
+                            </li>
+                            <!-- 13 -->
+
                         </ol>
                     </div>
                 </div>
@@ -707,7 +725,7 @@
         <div class="whats-new">
             <div class="g-heading-v10 g-mb-10 text-center">
                 <div class="g-heading-v10 g-mb-30 ">
-                    <p class="block-name"><span>6.</span> Acknowledgement</p>
+                    <p class="block-name"><span>4.</span> Acknowledgement</p>
                 </div>
             </div>
             <p class="content"></p>
@@ -723,12 +741,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="g-heading-v10 g-mb-65 " style="margin-bottom: 10px;">
-                            <h3 style="font-size: 30px;color: black; padding-left: 19px;">7. Contact us
+                            <h3 style="font-size: 30px;color: black; padding-left: 19px;">5. Contact us
                             </h3>
                             <div style="margin-left: 50px;font-size: 15px">
                                 <p>If you are interested in our works or have any problem, do not hesitate to contact
                                     our group.</p>
-                                <p>Email: <a style="color:#4a4848" href="#">shengyp2011@163.com, zenglin@gmail.com</a>
+                                <p>Email: <a style="color:#4a4848" href="#">shengyp2011@163.com</a>
                                 </p>
                                 <p>TEL: 028-xxxxxxxx</p>
                                 <p>Address: No.2006, Xiyuan Ave, West Hi-Tech Zone, 611731 | Chengdu, Sichuan,
